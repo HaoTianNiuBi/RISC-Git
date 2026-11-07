@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>RV-Doctor · K1 语音诊断终端</title>
+  <style>
+    :root {
+      font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+      color: #173029;
+      background: #eef4ef;
+      --muted: #536b61;
+      --green: #14694f;
+      --line: #d7e4da;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    h1, h2, p { margin: 0; }
+    [hidden] { display: none !important; }
+    button, summary { font: inherit; cursor: pointer; }
+    button { -webkit-tap-highlight-color: transparent; }
+    button:disabled { cursor: default; opacity: .55; }
+    button:focus-visible, summary:focus-visible { outline: 3px solid #cb8c29; outline-offset: 3px; }
+    .page { width: min(100%, 1100px); margin: 0 auto; padding: 16px 18px 26px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; margin-bottom: 14px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .brand-mark {
+      display: grid; place-items: center; width: 43px; height: 43px;
+      flex: none; border-radius: 13px; background: #175940; color: #fff;
+    }
+    .brand h1 { font-size: 23px; line-height: 1.2; letter-spacing: -.035em; }
+    .brand p { margin-top: 4px; color: var(--muted); font-size: 12px; }
+    .modes {
+      display: flex; flex: none; align-items: center; gap: 4px;
+      padding: 4px; background: #e4ece6; border: 1px solid var(--line); border-radius: 13px;
+    }
+    .mode-button {
+      min-height: 42px; padding: 8px 14px; border: 0; border-radius: 9px;
+      color: #355146; background: transparent; white-space: nowrap; font-size: 14px; font-weight: 650;
+    }
+    .mode-button[aria-pressed="true"] { color: #124a36; background: white; box-shadow: 0 1px 3px #264a3522; }
+    .connection-banner {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      margin-bottom: 12px; padding: 8px 12px; border: 1px solid #e7c5a2;
+      border-radius: 11px; background: #fff4e8; color: #753e21; font-size: 13px; line-height: 1.45;
+    }
+    .reconnect { min-height: 38px; flex: none; padding: 5px 11px; border: 1px solid #dcb691; border-radius: 8px; background: white; color: #753e21; }
+    .terminal-grid { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(260px, 1fr); gap: 13px; align-items: start; }
+    .sidebar { display: grid; gap: 12px; min-width: 0; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 2px 12px #20422d06; min-width: 0; }
+    .operation { padding: 17px; }
+    .operation[data-phase="preparing"] { background: #fffcf4; border-color: #dfc17c; }
+    .operation[data-phase="recording"] { background: #eefaf0; border-color: #72ac80; }
+    .operation[data-phase="recognizing"], .operation[data-phase="classifying"], .operation[data-phase="running"] { background: #f3f8ff; border-color: #adc6e3; }
+    .operation[data-phase="error"] { background: #fff8f4; border-color: #e7baa6; }
+    .operation-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .mode-label { color: var(--green); font-size: 13px; font-weight: 750; }
+    .connection { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .connection::before { content: ""; width: 7px; height: 7px; background: #8d9e93; border-radius: 50%; }
+    .connection[data-connected="true"]::before { background: #25855e; }
+    .reading {
+      margin-top: 13px; padding: 10px 12px 12px; border: 1px solid #dce9de;
+      border-radius: 12px; background: #f6faf6;
+    }
+    .reading-label { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+    .reference { color: #152d24; font-size: 26px; font-weight: 740; line-height: 1.4; overflow-wrap: anywhere; }
+    .stage { margin-top: 13px; }
+    .stage-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .stage-title { font-size: 30px; line-height: 1.2; letter-spacing: -.035em; font-weight: 750; }
+    [data-phase="recording"] .stage-title { color: #086337; }
+    [data-phase="preparing"] .stage-title { color: #7c5b1b; }
+    [data-phase="error"] .stage-title { color: #903e2f; }
+    .stage-description { margin-top: 6px; font-size: 13px; color: var(--muted); line-height: 1.55; overflow-wrap: anywhere; }
+    .elapsed {
+      flex: none; font-size: 17px; color: #0e6642; font-weight: 700; font-variant-numeric: tabular-nums;
+      background: #dcefe0; padding: 5px 9px; border-radius: 8px;
+    }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+    .control {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 53px; padding: 10px 12px; border: 1px solid transparent; border-radius: 12px;
+      font-size: 17px; font-weight: 700; white-space: nowrap;
+    }
+    .start { background: var(--green); color: white; }
+    .stop { background: #aa4739; color: white; }
+    .stop:disabled { background: #f2e9e5; border-color: #e7d1c8; color: #8d6258; }
+    .hint { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .scope { margin-top: 13px; border-top: 1px solid var(--line); padding-top: 11px; }
+    .scope strong { display: block; margin-bottom: 3px; color: #2c5041; font-size: 12px; }
+    .scope p { color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .result-card, .fixtures-card { padding: 14px; }
+    .card-heading { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 10px; }
+    .card-heading h2 { font-size: 15px; font-weight: 750; }
+    .counter, .result-case { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .fixture-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+    .fixture-option {
+      min-height: 44px; padding: 5px 2px; color: #314e43; background: #f5f9f5;
+      border: 1px solid #d9e5db; border-radius: 8px; font-size: 11px; font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+    .fixture-option[aria-pressed="true"] { border-color: #26835c; color: #155339; background: #e0f1e4; box-shadow: inset 0 0 0 1px #26835c; }
+    .fixture-option[data-recorded="true"] { background: #e7eee8; color: #4c6e59; }
+    .fixture-note { color: var(--muted); font-size: 11px; line-height: 1.45; margin-top: 9px; }
+    .result-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; }
+    .result-text {
+      font-size: 14px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere;
+      max-height: 120px; overflow: auto;
+    }
+    .result-text[data-empty="true"] { color: #63796c; }
+    .transcript-box { padding: 8px 10px; border-radius: 9px; background: #f1f6f2; }
+    .transcript-box .result-text { max-height: 68px; }
+    .intent-row { display: flex; align-items: center; gap: 8px; margin: 9px 0; }
+    .intent-row .result-label { margin-bottom: 0; }
+    .intent-value { border-radius: 7px; padding: 3px 8px; color: #1b573e; background: #e9f1ea; font-size: 12px; overflow-wrap: anywhere; }
+    details { margin-top: 9px; border-top: 1px solid var(--line); }
+    summary { min-height: 39px; padding-top: 9px; font-size: 12px; color: var(--green); }
+    pre { margin: 0; padding: 8px; max-height: 230px; overflow: auto; background: #f3f7f4; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 11px; line-height: 1.55; }
+    @media (min-width: 901px) {
+      .page { padding: 24px 24px 32px; }
+      .topbar { margin-bottom: 18px; }
+      .terminal-grid { gap: 16px; }
+      .operation { padding: 22px; }
+      .result-card, .fixtures-card { padding: 18px; }
+      .reference { font-size: 30px; }
+      .stage-title { font-size: 35px; }
+    }
+    @media (max-width: 650px) {
+      .page { padding: 12px 12px 20px; }
+      .topbar { flex-wrap: wrap; gap: 9px; }
+      .modes { width: 100%; }
+      .mode-button { flex: 1; }
+      .terminal-grid { grid-template-columns: 1fr; gap: 10px; }
+      .reference { font-size: 25px; }
+      .stage-title { font-size: 28px; }
+    }
+    @media (max-height: 540px) and (min-width: 651px) {
+      .page { padding-top: 11px; }
+      .topbar { margin-bottom: 11px; }
+      .operation { padding: 15px; }
+      .stage { margin-top: 11px; }
+      .controls { margin-top: 13px; }
+      .result-card, .fixtures-card { padding: 12px; }
+      .sidebar { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h5l3-7 5 14 3-7h6"/></svg>
+        </div>
+        <div><h1>RV-Doctor</h1><p>K1 语音性能诊断终端</p></div>
+      </div>
+      <div class="modes" role="group" aria-label="操作模式">
+        <button type="button" id="normalMode" class="mode-button" aria-pressed="true">语音交互</button>
+        <button type="button" id="fixtureMode" class="mode-button" aria-pressed="false">补录 10 句</button>
+      </div>
+    </header>
+
+    <div id="connectionBanner" class="connection-banner" role="alert" hidden>
+      <span id="connectionMessage"></span>
+      <button type="button" id="reconnect" class="reconnect">重新连接</button>
+    </div>
+
+    <div class="terminal-grid">
+      <section id="operation" class="card operation" aria-label="语音操作">
+        <div class="operation-top">
+          <span id="modeLabel" class="mode-label">语音交互</span>
+          <span id="connection" class="connection">正在连接</span>
+        </div>
+        <div id="reading" class="reading" hidden>
+          <p id="readingLabel" class="reading-label">本句朗读内容</p>
+          <div id="reference" class="reference">正在获取补录用例…</div>
+        </div>
+        <div class="stage" role="status" aria-live="polite" aria-atomic="true">
+          <div class="stage-heading">
+            <h2 id="stageTitle" class="stage-title">等待连接</h2>
+            <span id="elapsed" class="elapsed" aria-hidden="true" hidden></span>
+          </div>
+          <p id="stageDescription" class="stage-description">正在连接板端服务。</p>
+        </div>
+        <div class="controls">
+          <button type="button" id="start" class="control start" disabled>
+            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>
+            开始录音
+          </button>
+          <button type="button" id="stop" class="control stop" disabled>
+            <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2" fill="currentColor"/></svg>
+            停止录音
+          </button>
+        </div>
+        <p id="microphoneHint" class="hint">对着已接开发板的耳麦说话，说完点击「停止录音」。</p>
+        <div id="scope" class="scope">
+          <strong>安全操作范围</strong>
+          <p>支持开始体检、解释报告、比较预设配置和查询系统状态。超出范围的请求会提示重述。</p>
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="补录与结果">
+        <section id="fixturePanel" class="card fixtures-card" hidden>
+          <div class="card-heading"><h2>遗漏用例补录</h2><span id="fixtureCount" class="counter">0 / 10 已留档</span></div>
+          <div id="fixtureList" class="fixture-list" role="group" aria-label="选择补录用例"></div>
+          <p id="fixtureNote" class="fixture-note">每句只读一遍。补录后另行验收整套 20 条。</p>
+        </section>
+        <section class="card result-card" aria-label="最近一次处理结果">
+          <div class="card-heading"><h2>最近一次结果</h2><span id="resultCase" class="result-case" hidden></span></div>
+          <div class="transcript-box">
+            <span class="result-label">语音转写</span>
+            <p id="transcript" class="result-text" data-empty="true">等待录音</p>
+          </div>
+          <div class="intent-row"><span class="result-label">识别意图</span><span id="intent" class="intent-value">—</span></div>
+          <span class="result-label">处理结果</span>
+          <p id="resultMessage" class="result-text" data-empty="true">完成语音处理后显示结果。</p>
+          <details id="details" hidden><summary>查看详情</summary><pre id="detailText"></pre></details>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <script>
+    'use strict';
+    (() => {
+      const ui = Object.fromEntries([
+        'normalMode', 'fixtureMode', 'connectionBanner', 'connectionMessage', 'reconnect',
+        'operation', 'modeLabel', 'connection', 'reading', 'readingLabel', 'reference',
+        'stageTitle', 'elapsed', 'stageDescription', 'start', 'stop', 'microphoneHint', 'scope',
+        'fixturePanel', 'fixtureCount', 'fixtureList', 'fixtureNote', 'resultCase', 'transcript',
+        'intent', 'resultMessage', 'details', 'detailText'
+      ].map(id => [id, document.getElementById(id)]));
+
+      const phases = new Set(['idle', 'preparing', 'recording', 'recognizing', 'classifying', 'running', 'done', 'error']);
+      const busyPhases = new Set(['preparing', 'recording', 'recognizing', 'classifying', 'running']);
+      const intentLabels = {
+        start_checkup: '开始体检',
+        explain_report: '解释报告',
+        compare_configs: '比较配置',
+        query_system: '查询系统状态',
+        unknown: '超出支持范围'
+      };
+      const stages = {
+        preparing: ['请稍等', '录音正在准备，看到「现在朗读」再开口。'],
+        recording: ['现在朗读', '对着开发板耳麦说话，说完点击「停止录音」。'],
+        recognizing: ['本地识别中', '录音已结束，正在转写语音。'],
+        classifying: ['意图处理中', '正在判断这次语音请求对应的操作。'],
+        running: ['任务运行中', '正在执行已选定的任务，请稍等。'],
+        done: ['处理完成', '可以查看结果，或开始下一次语音操作。'],
+        error: ['本次未完成', '请查看提示，准备好后可以继续。']
+      };
+
+      let state = null;
+      let mode = 'normal';
+      let selectedId = null;
+      let frozenReference = '';
+      let connected = false;
+      let connectionError = '';
+      let actionError = '';
+      let pendingAction = null;
+      let pollTimer = null;
+      let pollController = null;
+      let readVersion = 0;
+      let fixtureSignature = '';
+      let detailsSignature = '';
+
+      const currentPhase = () => state?.phase || 'idle';
+      const busy = () => pendingAction !== null || busyPhases.has(currentPhase());
+      const fixtures = () => Array.isArray(state?.fixtures) ? state.fixtures : [];
+      const fixtureById = id => fixtures().find(item => item.case_id === id);
+      const completedCount = () => fixtures().filter(item => item.recorded === true).length;
+      const fixturesComplete = () => fixtures().length === 10 && completedCount() === 10;
+
+      function shortText(value, limit = 1800) {
+        if (typeof value !== 'string') return '';
+        const text = value.trim();
+        return text.length <= limit ? text : `${text.slice(0, limit)}…`;
+      }
+
+      function chooseFixture(item) {
+        selectedId = item?.case_id ?? null;
+        frozenReference = typeof item?.reference_text === 'string' ? item.reference_text : '';
+      }
+
+      function selectAvailableFixture() {
+        const list = fixtures();
+        const index = list.findIndex(item => item.case_id === selectedId);
+        const selected = list[index];
+        if (selected && selected.recorded !== true) return;
+        const next = list.slice(index + 1).find(item => item.recorded !== true)
+          || list.find(item => item.recorded !== true);
+        chooseFixture(next);
+      }
+
+      function acceptState(value) {
+        if (!value || !phases.has(value.phase)) throw new Error('板端服务返回的状态无法读取。');
+        state = value;
+        connected = true;
+        connectionError = '';
+
+        const active = fixtureById(value.active_fixture);
+        if (active && busyPhases.has(value.phase)) {
+          mode = 'fixture';
+          if (selectedId !== active.case_id) chooseFixture(active);
+        } else if (mode === 'fixture') {
+          selectAvailableFixture();
+        }
+        render();
+      }
+
+      function setMode(value) {
+        if (busy() || value === mode) return;
+        mode = value;
+        actionError = '';
+        if (mode === 'fixture') selectAvailableFixture();
+        render();
+      }
+
+      function renderFixtures() {
+        const list = fixtures();
+        const signature = JSON.stringify(list.map(item => [item.case_id, item.reference_text, item.recorded]));
+        if (signature !== fixtureSignature) {
+          fixtureSignature = signature;
+          ui.fixtureList.replaceChildren();
+          for (const item of list) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'fixture-option';
+            button.dataset.caseId = item.case_id;
+            button.textContent = item.case_id;
+            button.setAttribute('aria-label', `${item.case_id} ${item.reference_text || ''}${item.recorded === true ? '，已留档' : ''}`);
+            button.addEventListener('click', () => {
+              const current = fixtureById(button.dataset.caseId);
+              if (busy() || !connected || !current || current.recorded === true) return;
+              chooseFixture(current);
+              actionError = '';
+              render();
+            });
+            ui.fixtureList.append(button);
+          }
+        }
+        for (const button of ui.fixtureList.children) {
+          const item = fixtureById(button.dataset.caseId);
+          const recorded = item?.recorded === true;
+          button.dataset.recorded = String(recorded);
+          button.disabled = busy() || !connected || recorded;
+          button.setAttribute('aria-pressed', String(item?.case_id === selectedId));
+        }
+        ui.fixtureCount.textContent = `${completedCount()} / 10 已留档`;
+        ui.fixtureNote.textContent = fixturesComplete()
+          ? '10 句补录已留档。整套 20 条将另行验收。'
+          : '每句只读一遍。补录后另行验收整套 20 条。';
+      }
+
+      function stageCopy() {
+        if (!connected) return [state ? '正在重新连接' : '等待连接', '连接到板端服务后即可操作。', 'idle'];
+        if (pendingAction === 'start') return [...stages.preparing, 'preparing'];
+        if (pendingAction === 'stop') return ['正在结束录音', '录音结束后会开始本地识别。', 'recognizing'];
+
+        const phase = currentPhase();
+        if (phase === 'error') return [stages.error[0], shortText(state.message || state.error, 170) || stages.error[1], phase];
+        if (phase === 'recording' && mode === 'fixture') {
+          return [stages.recording[0], '请只读上方这句话一遍，读完点击「停止录音」。', phase];
+        }
+        if (phase === 'idle' || phase === 'done') {
+          if (mode === 'fixture' && fixturesComplete()) {
+            return ['补录完成', '10 句均已留档，整套 20 条将另行验收。', phase];
+          }
+          if (mode === 'fixture' && phase === 'done' && state.active_fixture) {
+            return ['下一句已就绪', '看清上方句子，准备好后再点击「开始录音」。', phase];
+          }
+          if (phase === 'idle') return ['准备好后开始', '点击「开始录音」，看到「现在朗读」再开口。', phase];
+        }
+        return [...(stages[phase] || stages.error), phase];
+      }
+
+      function renderResult() {
+        const transcript = shortText(state?.transcript, 550);
+        ui.transcript.textContent = transcript || (currentPhase() === 'recognizing' ? '正在转写…' : '暂无转写');
+        ui.transcript.dataset.empty = String(!transcript);
+
+        const rawIntent = typeof state?.intent === 'string' ? state.intent : state?.intent?.intent;
+        ui.intent.textContent = Object.hasOwn(intentLabels, rawIntent) ? intentLabels[rawIntent] : '—';
+
+        const result = state?.result;
+        const message = shortText(result?.message) || shortText(result?.error)
+          || (['done', 'error'].includes(currentPhase()) ? shortText(state?.message || state?.error) : '');
+        ui.resultMessage.textContent = message || '完成语音处理后显示结果。';
+        ui.resultMessage.dataset.empty = String(!message);
+        ui.resultCase.hidden = !state?.active_fixture;
+        ui.resultCase.textContent = shortText(state?.active_fixture, 25);
+
+        const extra = result && typeof result === 'object'
+          ? Object.fromEntries(Object.entries(result).filter(([key]) => key !== 'message' && key !== 'error'))
+          : {};
+        const detail = Object.keys(extra).length ? shortText(JSON.stringify(extra, null, 2), 1800) : '';
+        if (detail !== detailsSignature) {
+          detailsSignature = detail;
+          ui.details.open = false;
+          ui.detailText.textContent = detail;
+        }
+        ui.details.hidden = !detail;
+      }
+
+      function render() {
+        const fixtureMode = mode === 'fixture';
+        const selected = fixtureById(selectedId);
+        const isBusy = busy();
+        ui.normalMode.setAttribute('aria-pressed', String(!fixtureMode));
+        ui.fixtureMode.setAttribute('aria-pressed', String(fixtureMode));
+        ui.normalMode.disabled = isBusy;
+        ui.fixtureMode.disabled = isBusy;
+        ui.modeLabel.textContent = fixtureMode ? '遗漏用例补录' : '语音交互';
+        ui.connection.dataset.connected = String(connected);
+        ui.connection.textContent = connected ? '板端已连接' : '板端连接中';
+        const alert = actionError || connectionError;
+        ui.connectionBanner.hidden = !alert;
+        ui.connectionMessage.textContent = alert;
+        ui.reconnect.hidden = !connectionError;
+        ui.reconnect.disabled = pendingAction !== null;
+
+        ui.reading.hidden = !fixtureMode;
+        ui.fixturePanel.hidden = !fixtureMode;
+        ui.scope.hidden = fixtureMode;
+        ui.readingLabel.textContent = selected ? `${selected.case_id} · 本句朗读内容` : '本句朗读内容';
+        ui.reference.textContent = frozenReference || (fixturesComplete() ? '10 句均已补录' : '等待补录用例');
+        ui.microphoneHint.textContent = fixtureMode
+          ? '对着已接开发板的耳麦说话，每句只读一遍。'
+          : '对着已接开发板的耳麦说话，说完点击「停止录音」。';
+        renderFixtures();
+
+        const [title, description, visualPhase] = stageCopy();
+        ui.operation.dataset.phase = visualPhase;
+        if (ui.stageTitle.textContent !== title) ui.stageTitle.textContent = title;
+        if (ui.stageDescription.textContent !== description) ui.stageDescription.textContent = description;
+        ui.elapsed.hidden = visualPhase !== 'recording';
+        const elapsed = Math.max(0, Number(state?.elapsed_seconds) || 0);
+        ui.elapsed.textContent = `${elapsed.toFixed(1)} 秒`;
+        ui.start.disabled = !connected || isBusy || (fixtureMode && (!selected || selected.recorded === true || !frozenReference));
+        ui.stop.disabled = !connected || pendingAction !== null || currentPhase() !== 'recording';
+        renderResult();
+      }
+
+      function schedulePoll() {
+        clearTimeout(pollTimer);
+        pollTimer = setTimeout(async () => {
+          if (pendingAction === null) await refresh();
+          schedulePoll();
+        }, 450);
+      }
+
+      async function refresh() {
+        const version = ++readVersion;
+        pollController?.abort();
+        const controller = new AbortController();
+        pollController = controller;
+        const timeout = setTimeout(() => controller.abort(), 4500);
+        try {
+          const response = await fetch('/api/state', {cache: 'no-store', signal: controller.signal});
+          if (!response.ok) throw new Error(`板端服务暂不可用（${response.status}）。`);
+          const next = await response.json();
+          if (version === readVersion) acceptState(next);
+        } catch (error) {
+          if (version !== readVersion) return;
+          connected = false;
+          connectionError = error.name === 'AbortError' ? '板端服务响应超时。' : shortText(error.message, 150) || '板端连接中断。';
+          render();
+        } finally {
+          clearTimeout(timeout);
+          if (pollController === controller) pollController = null;
+        }
+      }
+
+      async function submit(action, payload) {
+        if (!connected || pendingAction !== null) return;
+        if (action === 'start' && busyPhases.has(currentPhase())) return;
+        if (action === 'stop' && currentPhase() !== 'recording') return;
+
+        pendingAction = action;
+        actionError = '';
+        readVersion += 1;
+        pollController?.abort();
+        clearTimeout(pollTimer);
+        render();
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12000);
+        try {
+          const response = await fetch(`/api/${action}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+          const next = await response.json();
+          if (phases.has(next?.phase)) acceptState(next);
+          if (!response.ok || next?.error) {
+            actionError = shortText(next?.error, 170) || shortText(next?.message, 170) || `操作未完成（${response.status}）。`;
+          }
+        } catch (error) {
+          actionError = error.name === 'AbortError' ? '请求响应超时，正在核对板端状态。' : '操作请求未完成，正在核对板端状态。';
+          await refresh();
+        } finally {
+          clearTimeout(timeout);
+          pendingAction = null;
+          render();
+          schedulePoll();
+        }
+      }
+
+      ui.normalMode.addEventListener('click', () => setMode('normal'));
+      ui.fixtureMode.addEventListener('click', () => setMode('fixture'));
+      ui.start.addEventListener('click', () => {
+        const item = fixtureById(selectedId);
+        if (mode === 'fixture' && (!item || item.recorded === true || !frozenReference)) return;
+        submit('start', {case_id: mode === 'fixture' ? item.case_id : null});
+      });
+      ui.stop.addEventListener('click', () => submit('stop', {}));
+      ui.reconnect.addEventListener('click', async () => {
+        if (pendingAction !== null) return;
+        clearTimeout(pollTimer);
+        actionError = '';
+        await refresh();
+        schedulePoll();
+      });
+      window.addEventListener('pageshow', () => {
+        if (pendingAction === null) refresh().finally(schedulePoll);
+      });
+      window.addEventListener('pagehide', () => {
+        clearTimeout(pollTimer);
+        readVersion += 1;
+        pollController?.abort();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

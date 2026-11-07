@@ -1,13 +1,28 @@
 {
   "client_date": "2026-11-07",
   "timezone": "Asia/Shanghai",
-  "state": "awaiting_user_recordings",
+  "state": "stage1_audio_asr_passed",
   "service_url": "http://127.0.0.1:18791/",
   "page_http_status": 200,
   "board_service": "rv-doctor-asr-collector.service",
   "phase": "idle",
-  "round_id": "round-19e7f20b8f73",
-  "completed_cases": 0,
+  "round_id": "round-6e90e6b91134",
+  "completed_cases": 10,
   "required_cases": 10,
-  "acceptance_passed": false
+  "acceptance_passed": false,
+  "last_assessed_round": {
+    "round_id": "round-6e90e6b91134",
+    "completed_cases": 10,
+    "status": "failed",
+    "corpus_cer": 0.2894736842105263,
+    "assessment": "results/round-6e90e6b91134-assessment.json"
+  },
+  "stage1_audio_asr": {
+    "run_id": "replay-filter-6d669d9d6a4f",
+    "source_round_id": "round-6e90e6b91134",
+    "status": "passed",
+    "completed_cases": 10,
+    "corpus_cer": 0.18421052631578946,
+    "assessment": "results/replay-filter-6d669d9d6a4f-assessment.json"
+  }
 }

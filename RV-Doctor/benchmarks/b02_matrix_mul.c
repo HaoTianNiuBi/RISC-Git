@@ -21,6 +21,9 @@ int main(void) {
             x = x * 1103515245u + 12345u;
             B[i][j] = (int32_t)((x >> 16) % 100u);
         }
+#ifdef _OPENMP
+    #pragma omp parallel for schedule(static)
+#endif
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++) {
             int32_t s = 0;
