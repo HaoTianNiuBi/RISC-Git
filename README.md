@@ -132,6 +132,7 @@ tools/qemu/qemu-system-riscv32.exe
 
 | 文档 | 内容 |
 |---|---|
+| [`方案书.md`](方案书.md) | 参赛方案书：摘要、引言、技术实现、开发计划、预期成果、应用价值与市场潜力、附录 |
 | [`RV-Doctor/docs/01-项目概述.md`](RV-Doctor/docs/01-项目概述.md) | 背景、目标、创新点与边界 |
 | [`RV-Doctor/docs/02-需求说明.md`](RV-Doctor/docs/02-需求说明.md) | 用户故事、功能与验收标准 |
 | [`RV-Doctor/docs/03-系统架构设计.md`](RV-Doctor/docs/03-系统架构设计.md) | 模块、接口、数据模型与技术选型 |
