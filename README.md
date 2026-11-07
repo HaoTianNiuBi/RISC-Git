@@ -7,6 +7,8 @@
 
 *English*: RV-Doctor cross-compiles C sources for RISC-V, runs them on QEMU bare-metal, parses instruction traces into dynamic instruction statistics, and lets a rule engine plus an LLM propose optimizations that must pass compile → output-identical → measured-faster gates before being accepted, with automatic rollback. The K1 edge build wraps this pipeline in an offline voice interface (local ASR → local LLM intent → restricted task execution).
 
+**成果包**：不 clone 也能看——[Releases](../../releases) 里有 `RV-Doctor-K1-成果包-20261107.zip`（168 个文件 / 0.44 MB），按「技术文档 / 源码 / 证据」三栏整理，不含模型权重、原始录音与工具链。
+
 ---
 
 ## 1. 三条技术线
