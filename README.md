@@ -102,6 +102,8 @@ tools/qemu/qemu-system-riscv32.exe
 
 ## 6. 已实测的数据（截至 2026-11-07）
 
+> 下表每个数字都可用 `python 板端验证/edge/check_numbers.py` 一次性对照证据文件校验（13 项检查，全绿输出 `ALL NUMBER CHECKS PASSED`）。
+
 | 项目 | 数值 | 证据 |
 |---|---|---|
 | 基准集基线（rv64gc/O0，10 个基准） | 动态指令数确定、可复算 | `RV-Doctor/reports/data/baseline_overview.json` |
