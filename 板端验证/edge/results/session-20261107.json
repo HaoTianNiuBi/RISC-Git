@@ -1,0 +1,346 @@
+{
+  "test_id": "session-20261107",
+  "purpose": "阶段 5.3 连续现场交互（触屏 + 耳麦，真机）",
+  "client_date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "note": "板端时钟慢约 9 小时，attempts 只按板端文件时间排序；耗时为终端单调计时。",
+  "environment": {
+    "device": "BPMIK102161283023",
+    "endpoint": "http://127.0.0.1:18793/",
+    "llm": "Qwen3.5-2B Q4_K_M, -ub 32, 4 threads",
+    "asr": "spacemit_asr 1.0.2 + SenseVoice, CPU 4 线程, VAD 关闭",
+    "operator": "参赛者本人（现场朗读）"
+  },
+  "targets": [
+    {
+      "round": "R1",
+      "prompt": "开始体检",
+      "expected_intent": "start_checkup"
+    },
+    {
+      "round": "R2",
+      "prompt": "请对当前任务做一次体检",
+      "expected_intent": "start_checkup"
+    },
+    {
+      "round": "R3",
+      "prompt": "跑一遍体检流程",
+      "expected_intent": "start_checkup"
+    },
+    {
+      "round": "R4",
+      "prompt": "解释报告",
+      "expected_intent": "explain_report"
+    },
+    {
+      "round": "R5",
+      "prompt": "解释刚才的体检结果",
+      "expected_intent": "explain_report"
+    },
+    {
+      "round": "R6",
+      "prompt": "比较配置",
+      "expected_intent": "compare_configs"
+    },
+    {
+      "round": "R7",
+      "prompt": "比较四线程和八线程的运行结果",
+      "expected_intent": "compare_configs"
+    },
+    {
+      "round": "R8",
+      "prompt": "查看系统状态",
+      "expected_intent": "query_system"
+    },
+    {
+      "round": "R9",
+      "prompt": "现在可用内存还有多少",
+      "expected_intent": "query_system"
+    },
+    {
+      "round": "R10",
+      "prompt": "帮我订一张明天的电影票",
+      "expected_intent": "unknown"
+    }
+  ],
+  "attempts": [
+    {
+      "capture_id": "a8b8ade5b5334872a99839d3547d1170",
+      "board_mtime": 1793830700.0,
+      "transcript": "我。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 13.824568048999936,
+      "llm_seconds": 11.84698888100138
+    },
+    {
+      "capture_id": "50128c1ae069468397f1be727e1b25c8",
+      "board_mtime": 1793832688.0,
+      "transcript": "喂喂喂。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 15.186036422997859,
+      "llm_seconds": 11.92349196399664
+    },
+    {
+      "capture_id": "e086d6b8e8204371b6cc0808afeed134",
+      "board_mtime": 1793832741.0,
+      "transcript": "开始啤酒。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 14.153605381998204,
+      "llm_seconds": 11.686655296998651
+    },
+    {
+      "capture_id": "2bb3d0861a11401ea355c3e64a2015f8",
+      "board_mtime": 1793832766.0,
+      "transcript": "开始体检。",
+      "intent": "start_checkup",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "start_checkup",
+      "task_ok": true,
+      "task_message": "固定矩阵乘法体检完成，输出与参考一致。三次进程运行耗时中位数 4.96 毫秒。",
+      "stop_to_result_seconds": 15.90882813299686,
+      "llm_seconds": 12.639252005999879
+    },
+    {
+      "capture_id": "85a61913ccd242649a088bf75cbedd44",
+      "board_mtime": 1793832804.0,
+      "transcript": "请对当前任务作一次提贴。",
+      "intent": "start_checkup",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "start_checkup",
+      "task_ok": true,
+      "task_message": "固定矩阵乘法体检完成，输出与参考一致。三次进程运行耗时中位数 5.13 毫秒。",
+      "stop_to_result_seconds": 17.937282383998536,
+      "llm_seconds": 14.086313089999749
+    },
+    {
+      "capture_id": "d7f957ac09334791b2f55ca2044f9ef0",
+      "board_mtime": 1793832839.0,
+      "transcript": "跑一跑一遍体检流程。",
+      "intent": "start_checkup",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "start_checkup",
+      "task_ok": true,
+      "task_message": "固定矩阵乘法体检完成，输出与参考一致。三次进程运行耗时中位数 4.95 毫秒。",
+      "stop_to_result_seconds": 16.91103055000349,
+      "llm_seconds": 13.568771631002164
+    },
+    {
+      "capture_id": "0571c7fe2ede44b1a25324fadeca3dd2",
+      "board_mtime": 1793832870.0,
+      "transcript": "也是跑告。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 16.815219091000472,
+      "llm_seconds": 11.919165171999339
+    },
+    {
+      "capture_id": "ba9e99b508f447fb8aca92d961589bde",
+      "board_mtime": 1793832897.0,
+      "transcript": "解绣报。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 15.75515555000311,
+      "llm_seconds": 11.919188046998897
+    },
+    {
+      "capture_id": "266700f0b9e249da832c5823e26fce3b",
+      "board_mtime": 1793832916.0,
+      "transcript": "刑事报告。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 13.611931298000854,
+      "llm_seconds": 11.690578921999986
+    },
+    {
+      "capture_id": "d8cc864253194726b5a96b674c3d9a6b",
+      "board_mtime": 1793832940.0,
+      "transcript": "提示报告。",
+      "intent": "explain_report",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "explain_report",
+      "task_ok": true,
+      "task_message": "最近一次体检运行了固定矩阵乘法，三次输出都与参考一致。进程运行耗时中位数为 4.95 毫秒，包含进程启动和 OpenMP 调度。",
+      "stop_to_result_seconds": 14.466338841000834,
+      "llm_seconds": 12.157087380997837
+    },
+    {
+      "capture_id": "ee9602ed36484303882403fd527bbef5",
+      "board_mtime": 1793832972.0,
+      "transcript": "解是党解是岗的体检解。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 16.418633550001687,
+      "llm_seconds": 13.285932423001213
+    },
+    {
+      "capture_id": "d95da88049de4bf897b89f8bb208f5ed",
+      "board_mtime": 1793833003.0,
+      "transcript": "解释刚才的体检结果。",
+      "intent": "explain_report",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "explain_report",
+      "task_ok": true,
+      "task_message": "最近一次体检运行了固定矩阵乘法，三次输出都与参考一致。进程运行耗时中位数为 4.95 毫秒，包含进程启动和 OpenMP 调度。",
+      "stop_to_result_seconds": 17.158977507999225,
+      "llm_seconds": 12.831219173000136
+    },
+    {
+      "capture_id": "971807192c2a4469bb7e97eb9f6c60e0",
+      "board_mtime": 1793833025.0,
+      "transcript": "比较配置。",
+      "intent": "compare_configs",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "compare_configs",
+      "task_ok": true,
+      "task_message": "同一固定基准运行三次的进程耗时中位数，四线程配置 5.14 毫秒，八线程配置 5.57 毫秒。两组输出都与参考一致，耗时包含进程启动和 OpenMP 调度。",
+      "stop_to_result_seconds": 14.34757683999851,
+      "llm_seconds": 12.160805714000162
+    },
+    {
+      "capture_id": "72490a699230474fb91096ee34b815d0",
+      "board_mtime": 1793833057.0,
+      "transcript": "比较四线程和八线程的运行结果。",
+      "intent": "compare_configs",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "compare_configs",
+      "task_ok": true,
+      "task_message": "同一固定基准运行三次的进程耗时中位数，四线程配置 5.14 毫秒，八线程配置 5.57 毫秒。两组输出都与参考一致，耗时包含进程启动和 OpenMP 调度。",
+      "stop_to_result_seconds": 16.859356757999194,
+      "llm_seconds": 13.599998132001929
+    },
+    {
+      "capture_id": "ec77ed78618e494cab07022ee3d7f872",
+      "board_mtime": 1793833079.0,
+      "transcript": "查看系统状态。",
+      "intent": "query_system",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "query_system",
+      "task_ok": true,
+      "task_message": "当前处理器占用 0.6%，可用内存 13616 MiB，共 15959 MiB。",
+      "stop_to_result_seconds": 14.759983632000512,
+      "llm_seconds": 12.39772079800241
+    },
+    {
+      "capture_id": "2a3e092ce8134f46b50733f255540b12",
+      "board_mtime": 1793833105.0,
+      "transcript": "现在可用内存还有多少？",
+      "intent": "query_system",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": "query_system",
+      "task_ok": true,
+      "task_message": "当前处理器占用 0.6%，可用内存 13621 MiB，共 15959 MiB。",
+      "stop_to_result_seconds": 15.523132341000746,
+      "llm_seconds": 12.831418380999821
+    },
+    {
+      "capture_id": "d58ff1bfbde841a59c4233b874df23f4",
+      "board_mtime": 1793833129.0,
+      "transcript": "帮我订一张明天的电影票。",
+      "intent": "unknown",
+      "json_valid": true,
+      "failure_reason": null,
+      "dispatched": null,
+      "task_ok": null,
+      "task_message": null,
+      "stop_to_result_seconds": 15.363109089998034,
+      "llm_seconds": 12.61590129799879
+    }
+  ],
+  "summary": {
+    "attempts": 17,
+    "dispatched": 9,
+    "intended_unknown": 1,
+    "asr_failures": 7,
+    "targets_achieved": "10/10（9 次派发 + 1 次有意越界零派发）",
+    "first_attempt_success_rate": 0.529,
+    "stop_to_result_seconds": {
+      "min": 13.61,
+      "median": 15.52,
+      "max": 17.94
+    },
+    "failure_mode": "短句被识别成同音或近音文本（如「解释报告」→「刑事报告」「解绣报」），意图落到 unknown，零派发，页面可继续"
+  },
+  "gain_experiment": {
+    "purpose": "判断识别失败是否由音量过低导致",
+    "method": "同一段原始 WAV，用 24 / 36 / 44 dB 三种增益上限各跑一遍完整前处理 + SenseVoice",
+    "results": [
+      {
+        "clip": "ba9e99b5（原转写「解绣报」）",
+        "source_peak": 1355.5,
+        "needed_gain_db": 25.32,
+        "by_cap": {
+          "24": "解绣报。",
+          "36": "9绣报。",
+          "44": "9绣报。"
+        }
+      },
+      {
+        "clip": "266700f0（原转写「刑事报告」）",
+        "source_peak": 159.0,
+        "needed_gain_db": 43.93,
+        "by_cap": {
+          "24": "刑事报告。",
+          "36": "刑事报告。",
+          "44": "刑事报告。"
+        }
+      },
+      {
+        "clip": "d95da880（成功样本「解释刚才的体检结果」）",
+        "source_peak": 89.0,
+        "needed_gain_db": 48.97,
+        "by_cap": {
+          "24": "解释刚才的体检结果。",
+          "36": "解释刚才的体检结果。",
+          "44": "解释刚才的体检结果。"
+        }
+      }
+    ],
+    "conclusion": "提高增益上限不改变识别结果，失败属于短句声学混淆，不是音量不足；因此不改动前处理参数。"
+  },
+  "conclusion": {
+    "interaction_usable": true,
+    "no_runaway_dispatch": true,
+    "short_phrase_fragile": true,
+    "recommendation": "演示与验收优先使用较长的自然句式（如「解释刚才的体检结果」），四字短句保留作为重说路径的演示素材"
+  }
+}
