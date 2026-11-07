@@ -38,3 +38,5 @@ RV-Doctor/reports/tmp/
 Thumbs.db
 .DS_Store
 .env
+# 本地临时与权限恢复材料
+.local/
