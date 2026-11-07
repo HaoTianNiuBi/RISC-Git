@@ -34,6 +34,29 @@ python3 tasks.py --base . --seed          # --base 必须给，否则报告与�
 
 Windows 端使用 ADB 转发后，在浏览器打开 [K1 语音终端](http://127.0.0.1:18793/)。板端浏览器也可直接打开相同的地址。当前临时服务名为 `rv-doctor-edge-llm.service` 和 `rv-doctor-edge-terminal.service`。
 
+## 重启与恢复（重要）
+
+这两个服务是 `systemd-run` 创建的**临时单元**：`systemctl stop` 之后单元定义会被销毁，`systemctl start` 会报 `Unit not found`。停止或整机重启后必须**用相同参数重建**，不能只 start：
+
+```bash
+# 千问（约 18 秒后 /health 可用）
+systemd-run --unit=rv-doctor-edge-llm --uid=haotian --gid=haotian \
+  --working-directory=/home/haotian --property=Restart=no \
+  /usr/bin/llama-server -m /home/haotian/muse-qwen35/models/Qwen3.5-2B-Q4_K_M.gguf \
+  --alias qwen3.5-2b --host 127.0.0.1 --port 18080 --parallel 1 \
+  -t 4 -tb 4 -c 2048 -b 128 -ub 32 --reasoning off
+
+# 终端
+systemd-run --unit=rv-doctor-edge-terminal --uid=haotian --gid=haotian \
+  --working-directory=/home/haotian --property=Restart=no \
+  /home/haotian/rv-doctor-edge-validation/asr/venv/bin/python -u \
+  /home/haotian/rv-doctor-edge-validation/terminal/terminal.py \
+  --base /home/haotian/rv-doctor-edge-validation/terminal \
+  --model-dir /home/haotian/rv-doctor-edge-validation/asr/models/sensevoice --port 18793
+```
+
+另外：本板 `arecord` 被 SIGINT 中断时返回 **1** 且不写 stderr，录制代码已按「退出码 1 + 文件已落盘」判定为主动停止；若换板后仍见「录音失败」，先确认这一点。
+
 ```powershell
 & 'D:\Android\Sdk\platform-tools\adb.exe' -s BPMIK102161283023 forward tcp:18793 tcp:18793
 ```

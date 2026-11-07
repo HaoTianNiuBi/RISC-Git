@@ -1,0 +1,140 @@
+{
+  "test_id": "recovery-20261107",
+  "purpose": "阶段 5.4 异常与恢复（空录音 / 千问不可用 / 服务重启）",
+  "client_date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "note": "板端时钟比客户端慢约 2 天，本文件时间以客户端为准；板端单调计时器用于耗时。",
+  "environment": {
+    "device": "BPMIK102161283023",
+    "terminal_dir": "/home/haotian/rv-doctor-edge-validation/terminal",
+    "python": "/home/haotian/rv-doctor-edge-validation/asr/venv/bin/python",
+    "llm_model": "/home/haotian/muse-qwen35/models/Qwen3.5-2B-Q4_K_M.gguf",
+    "llm_endpoint": "http://127.0.0.1:18080",
+    "terminal_endpoint": "http://127.0.0.1:18793",
+    "unit_kind": "rv-doctor-edge-llm.service 与 rv-doctor-edge-terminal.service 均为 systemd-run 临时单元",
+    "probe": "板端验证/edge/recovery_probe.py（只调用 route()，用 spy dispatcher，不执行真实任务）"
+  },
+  "cases": [
+    {
+      "case_id": "valid_up",
+      "condition": "千问在线",
+      "input_text": "开始体检",
+      "expected": "判定为 start_checkup 并派发",
+      "observed": {
+        "intent": "start_checkup",
+        "json_valid": true,
+        "dispatched": true,
+        "llm_total_seconds": 12.288,
+        "llm_first_content_seconds": 8.919
+      },
+      "passed": true,
+      "evidence": "板端验证/edge/recovery-suite.jsonl 第 1 行"
+    },
+    {
+      "case_id": "unknown",
+      "condition": "千问在线",
+      "input_text": "帮我订一张明天的电影票",
+      "expected": "判定为 unknown，且不派发任何任务",
+      "observed": {
+        "intent": "unknown",
+        "json_valid": true,
+        "dispatched": false,
+        "dispatch_calls": [],
+        "llm_total_seconds": 12.390
+      },
+      "passed": true,
+      "evidence": "板端验证/edge/recovery-suite.jsonl 第 2 行"
+    },
+    {
+      "case_id": "valid_down",
+      "condition": "千问服务已停止（systemctl stop 后单元销毁）",
+      "input_text": "开始体检",
+      "expected": "给出可读失败原因，且不派发任何任务",
+      "observed": {
+        "intent": null,
+        "json_valid": false,
+        "failure_reason": "transport_error:ConnectionRefusedError",
+        "dispatched": false,
+        "dispatch_calls": [],
+        "wall_seconds": 0.010
+      },
+      "passed": true,
+      "note": "终端把 json_valid=false 映射为 phase=error，提示「未收到有效的意图结果，请重试。」，不进入派发。",
+      "evidence": "板端验证/edge/recovery-suite.jsonl 第 3 行"
+    },
+    {
+      "case_id": "valid_recovery",
+      "condition": "用 systemd-run 重建千问后 18 秒 /health 恢复",
+      "input_text": "开始体检",
+      "expected": "恢复正常判定与派发",
+      "observed": {
+        "intent": "start_checkup",
+        "json_valid": true,
+        "dispatched": true,
+        "llm_total_seconds": 33.336,
+        "llm_first_content_seconds": 29.965
+      },
+      "passed": true,
+      "note": "重建后首个请求无提示词缓存，耗时回到冷态约 33 秒，与阶段 3 的冷态结论一致。",
+      "evidence": "板端验证/edge/recovery-suite.jsonl 第 4 行"
+    }
+  ],
+  "silence_before_fix": {
+    "when": "2026-11-07 15:15 左右（修复前）",
+    "action": "POST /api/start -> 4 秒无语音 -> POST /api/stop",
+    "observed": {
+      "phase": "error",
+      "message": "录音失败，请检查耳麦连接。",
+      "intent": null,
+      "result": null,
+      "raw_wav_bytes": 708652
+    },
+    "diagnosis": "误报。arecord 被 SIGINT 中断时返回 1 且 stderr 为空，capture() 只接受 0/-2/130，因而把「用户点停止」当成采集失败。"
+  },
+  "silence_after_fix": {
+    "when": "2026-11-07 15:26 左右（修复并重启终端后）",
+    "action": "POST /api/start -> 4 秒无语音 -> POST /api/stop",
+    "observed": {
+      "phase": "done",
+      "message": "请说出需要的操作。支持性能体检、解释报告、对比配置和查询系统状态。",
+      "intent": "unknown",
+      "result": null,
+      "stop_to_done_seconds": 18.1
+    },
+    "passed": true,
+    "note": "静音被识别为无意义文本，意图落到 unknown，页面给出可读提示且零派发。"
+  },
+  "defects_found": [
+    {
+      "id": "D1",
+      "title": "手动点击停止必报「录音失败」",
+      "severity": "高（阻断核心交互：10 次现场验收与演示视频都要求手动停止）",
+      "root_cause": "本板 arecord 收到 SIGINT 返回 1 且不写 stderr；audio.py 只接受 0 / -SIGINT / 128+SIGINT",
+      "reproduction": "直接运行 arecord -d 12 后在 3 秒时 kill -INT：3 次实测全部 exit=1，stderr 为空，WAV 已落盘",
+      "why_previous_recordings_passed": "此前 10 条补录都跑满 12 秒自然结束（文件恒为 2304044 字节），未走手动停止分支",
+      "fix": "audio.py：退出码为 1 时，只要文件已落盘且长于 44 字节 WAV 头，就按主动停止处理；空文件或缺失仍报错",
+      "file_sha256_before": "2cda4b00c82bb48d6a037fff8d5e734508e20580d2dc0a3965000ec07442d132",
+      "file_sha256_after": "f57fef2844c960bf4cf6183575c3518830f7eb259116147240fdc4153de1322a",
+      "board_backup": "/home/haotian/rv-doctor-edge-validation/terminal/audio.py.bak-20261107",
+      "verified_by": "silence_after_fix 与终端重启后 /api/state 正常"
+    },
+    {
+      "id": "D2",
+      "title": "服务停止后无法用 systemctl start 恢复",
+      "severity": "中（影响 5.2 重启流程与现场应急）",
+      "root_cause": "rv-doctor-edge-llm.service 与 rv-doctor-edge-terminal.service 是 systemd-run 创建的临时单元，被 stop 后单元定义即销毁",
+      "fix": "用 systemd-run 以相同参数重建（完整命令见 板端验证/edge/run_recovery_suite.sh 第 4 步）",
+      "verified_by": "重建两次均成功，/health 分别 18 秒与 18 秒恢复"
+    }
+  ],
+  "conclusion": {
+    "abnormal_paths_readable": true,
+    "zero_dispatch_on_abnormal": true,
+    "recovery_after_llm_restart": true,
+    "remaining_gaps": [
+      "拔耳麦（物理断开）未测，需参赛者操作",
+      "连续 10 次现场交互（阶段 5.3）未做，需参赛者朗读",
+      "整机断电重启未做，需现场条件"
+    ]
+  }
+}

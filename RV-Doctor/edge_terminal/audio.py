@@ -47,7 +47,13 @@ def capture(path, stop, ready):
                 process.kill()
                 raise ValueError('麦克风停止超时，请重试。') from None
             if code not in (0, -signal.SIGINT, 128 + signal.SIGINT):
-                raise ValueError('录音失败，请检查耳麦连接。')
+                # 本板 arecord（Bianbu/LXQt 自带版本）收到 SIGINT 时返回 1 且不写 stderr，
+                # 实测 3/3 复现；只接受 0/-2/130 会把「用户点停止」误判为采集失败。
+                # 判据改为：退出码为 1 时，只要文件已落盘且长于 WAV 头，就按主动停止处理；
+                # 空文件或文件缺失仍然视为真正的采集失败。
+                size = path.stat().st_size if path.exists() else 0
+                if code != 1 or size <= 44:
+                    raise ValueError('录音失败，请检查耳麦连接。')
 
 
 class AudioPipeline:
