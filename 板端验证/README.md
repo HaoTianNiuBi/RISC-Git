@@ -49,3 +49,32 @@ arecord -D 'hw:CARD=sndes8326,DEV=0' -f S16_LE -r 48000 -c 2 -d 10 output.wav
 官方模型库将 SenseVoice 列在 K1 音频模型项中，但当前板端的 SDK、模型、依赖和实际推理兼容性仍需验证。下一步宜先验证单个 16 kHz 单声道 WAV 的本地文件识别。
 
 参考：[ASR README](../K1-官方资料/ai/model-zoo-asr/README.md)、[ASR API](../K1-官方资料/ai/model-zoo-asr/API.md)、[官方模型库](../K1-官方资料/ai/docs-ai/zh/compute_stack/ai_compute_stack/modelzoo.md)。
+
+## 阶段 5：交付前验证（2026-11-07）
+
+### 部署一致性
+
+板端 `terminal/` 下 12 个文件与仓库 `37673a3` 逐一比对 SHA256，**12/12 一致**（含终端、意图、任务、验收、基准源与验收样本定义）。
+证据：[deploy-consistency-20261107.json](edge/results/deploy-consistency-20261107.json)。
+
+### 异常与恢复
+
+| 场景 | 结果 |
+|---|---|
+| 千问在线 + 合法意图 | 派发 `start_checkup`，接口 12.29 s |
+| 千问在线 + 越界意图 | `unknown`，零派发 |
+| 千问离线 + 合法意图 | `transport_error:ConnectionRefusedError`，0.010 s，零派发 |
+| 重建千问后复测 | 恢复派发，冷态 33.34 s |
+| 空录音（4 s 静音手动停止） | `phase=done`、`intent=unknown`、零派发、18.1 s |
+
+证据：[recovery-20261107.json](edge/results/recovery-20261107.json) · [四态原始输出](edge/results/recovery-suite.jsonl) · 复跑脚本
+[run_recovery_suite.sh](edge/run_recovery_suite.sh) 与 [recovery_probe.py](edge/recovery_probe.py)。
+
+### 期间修复的两个缺陷
+
+- **D1（高）**：本板 `arecord` 被 SIGINT 中断返回 **1** 且不写 stderr，旧代码只接受 0/-2/130，导致**每次手动点停止都误报「录音失败」**。已改为「退出码 1 且文件大于 44 字节即视为主动停止」，空文件仍报错；修复前后 SHA256 与板端备份位置见证据文件。
+- **D2（中）**：两个服务是 `systemd-run` 临时单元，`systemctl stop` 后单元销毁，`start` 报 `Unit not found`；重建命令已写入 `RV-Doctor/edge_terminal/README.md` 的「重启与恢复」。
+
+### 仍未完成
+
+拔耳麦（物理断开）、整机断电重启、连续 10 次现场交互（阶段 5.3）——均需参赛者到板子前操作。

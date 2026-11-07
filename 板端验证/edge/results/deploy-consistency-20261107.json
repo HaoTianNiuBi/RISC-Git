@@ -1,0 +1,95 @@
+{
+    "test_id":  "deploy-consistency-20261107",
+    "checked_at_utc":  "2026-11-07T07:30:46Z",
+    "board_dir":  "/home/haotian/rv-doctor-edge-validation/terminal",
+    "repo_commit":  "37673a3edf84eec4f00b5a7cfdadee524a8381fb",
+    "repo_commit_short":  "37673a3",
+    "files_checked":  12,
+    "all_match":  true,
+    "files":  [
+                  {
+                      "file":  "audio.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/audio.py",
+                      "repo_sha256":  "f57fef2844c960bf4cf6183575c3518830f7eb259116147240fdc4153de1322a",
+                      "board_sha256":  "f57fef2844c960bf4cf6183575c3518830f7eb259116147240fdc4153de1322a",
+                      "match":  true
+                  },
+                  {
+                      "file":  "validate.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/validate.py",
+                      "repo_sha256":  "0b74bffa3061c6713076f1b7aa723eb2f0770d0cd820b24e7a2cfc0bc3f177e1",
+                      "board_sha256":  "0b74bffa3061c6713076f1b7aa723eb2f0770d0cd820b24e7a2cfc0bc3f177e1",
+                      "match":  true
+                  },
+                  {
+                      "file":  "terminal.html",
+                      "repo_path":  "RV-Doctor/edge_terminal/terminal.html",
+                      "repo_sha256":  "f3c602b7330701381e0cac20cd8d10dca1ba87d0e0f0a4482290a13d0e345020",
+                      "board_sha256":  "f3c602b7330701381e0cac20cd8d10dca1ba87d0e0f0a4482290a13d0e345020",
+                      "match":  true
+                  },
+                  {
+                      "file":  "terminal.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/terminal.py",
+                      "repo_sha256":  "30fffe4537cdeeb5a83ff8cc6cc9afdc5cce8d99c51caabc1712dcfd94c4c108",
+                      "board_sha256":  "30fffe4537cdeeb5a83ff8cc6cc9afdc5cce8d99c51caabc1712dcfd94c4c108",
+                      "match":  true
+                  },
+                  {
+                      "file":  "b02_matrix_mul.c",
+                      "repo_path":  "RV-Doctor/benchmarks/b02_matrix_mul.c",
+                      "repo_sha256":  "037c61c63d324cb0ef751f7bb7e8180d0e1a981c04978b777d00577aab9838ee",
+                      "board_sha256":  "037c61c63d324cb0ef751f7bb7e8180d0e1a981c04978b777d00577aab9838ee",
+                      "match":  true
+                  },
+                  {
+                      "file":  "acceptance_eval.py",
+                      "repo_path":  "板端验证/asr/acceptance_eval.py",
+                      "repo_sha256":  "b4f0e4be38acfb052a720b29d5c17c5d1c6206983a4f71cd83004b1e2af3cb49",
+                      "board_sha256":  "b4f0e4be38acfb052a720b29d5c17c5d1c6206983a4f71cd83004b1e2af3cb49",
+                      "match":  true
+                  },
+                  {
+                      "file":  "prepare_audio.py",
+                      "repo_path":  "板端验证/asr/prepare_audio.py",
+                      "repo_sha256":  "0ccf4e1b532a0aaeb121e3d9b36242d212ff21553ad5554cc927e55da8d994fb",
+                      "board_sha256":  "0ccf4e1b532a0aaeb121e3d9b36242d212ff21553ad5554cc927e55da8d994fb",
+                      "match":  true
+                  },
+                  {
+                      "file":  "benchmark.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/benchmark.py",
+                      "repo_sha256":  "671495c99940edf7c035caf78182915e088620b02b018c30b1417fa34968ab80",
+                      "board_sha256":  "671495c99940edf7c035caf78182915e088620b02b018c30b1417fa34968ab80",
+                      "match":  true
+                  },
+                  {
+                      "file":  "tasks.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/tasks.py",
+                      "repo_sha256":  "f94808d0e3f5e2167e77b412dbe0088dde4f1bc2f2e36ccc025ec86c5303bc89",
+                      "board_sha256":  "f94808d0e3f5e2167e77b412dbe0088dde4f1bc2f2e36ccc025ec86c5303bc89",
+                      "match":  true
+                  },
+                  {
+                      "file":  "b02_matrix_mul.out",
+                      "repo_path":  "RV-Doctor/benchmarks/expected/b02_matrix_mul.out",
+                      "repo_sha256":  "ea98fc328bd3b78869b1a68be57cdecd002ff94decfb3bfa7c0e1bafd4b1b0fc",
+                      "board_sha256":  "ea98fc328bd3b78869b1a68be57cdecd002ff94decfb3bfa7c0e1bafd4b1b0fc",
+                      "match":  true
+                  },
+                  {
+                      "file":  "intent.py",
+                      "repo_path":  "RV-Doctor/edge_terminal/intent.py",
+                      "repo_sha256":  "dba916ba349910f60238799221fb5eb2af5d2f9e3b64f462ef93a3a6857cf01b",
+                      "board_sha256":  "dba916ba349910f60238799221fb5eb2af5d2f9e3b64f462ef93a3a6857cf01b",
+                      "match":  true
+                  },
+                  {
+                      "file":  "acceptance-cases.json",
+                      "repo_path":  "RV-Doctor/docs/edge/acceptance-cases.json",
+                      "repo_sha256":  "dfa6e277b89140b4cce224c45dfe3be16959861c347f9c00962d45bea79002e4",
+                      "board_sha256":  "dfa6e277b89140b4cce224c45dfe3be16959861c347f9c00962d45bea79002e4",
+                      "match":  true
+                  }
+              ]
+}
