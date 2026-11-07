@@ -1,0 +1,68 @@
+[ModelDownloader] All models available in /home/haotian/rv-doctor-edge-validation/asr/models/sensevoice
+[FeatureExtractor] FFTW initialized (size=512)
+[FeatureExtractor] CMVN loaded (dim=560)
+[Tokenizer] Loaded 25055 tokens
+[SenseVoiceBackend] SenseVoice model loaded: /home/haotian/rv-doctor-edge-validation/asr/models/sensevoice/model_quant_optimized.onnx
+[SenseVoiceBackend] Initialized successfully
+[ASREngine] Initialized with backend: SenseVoice
+
+=== Performance Breakdown ===
+Feature extraction: 0.02s (0.79%)
+Data flattening: 0.00s (0.01%)
+ONNX inference: 3.02s (98.15%)
+Token decoding: 0.03s (1.05%)
+Total (model): 3.08s, Audio: 9.50s, RTF: 0.324
+[SenseVoiceBackend] Shutdown complete
+[SenseVoiceBackend] Shutdown complete
+{
+  "purpose": "stage1_component_smoke_not_formal_acceptance",
+  "formal_acceptance": "not_run",
+  "provider_requested": "cpu",
+  "num_threads": 4,
+  "platform": "Linux-6.6.63-riscv64-with-glibc2.39",
+  "python_version": "3.12.3 (main, Nov  6 2024, 18:32:19) [GCC 13.2.0]",
+  "model_dir": "/home/haotian/rv-doctor-edge-validation/asr/models/sensevoice",
+  "input_file": "/home/haotian/rv-doctor-edge-validation/asr/input/mic-smoke-16k-mono.wav",
+  "expected_input_sha256": "546bcf1aa64dfaa71b30405bf3e76771da58fe22c2edd26d03abbefd64deb837",
+  "note": "Existing microphone check clip; exact reference/count was not frozen, so CER cannot be scored.",
+  "input_sha256": "546bcf1aa64dfaa71b30405bf3e76771da58fe22c2edd26d03abbefd64deb837",
+  "input_format": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "frames": 152000
+  },
+  "model_resources": [
+    {
+      "file": "am.mvn",
+      "sha256": "29b3c740a2c0cfc6b308126d31d7f265fa2be74f3bb095cd2f143ea970896ae5",
+      "bytes": 11203
+    },
+    {
+      "file": "model_quant_optimized.onnx",
+      "sha256": "0b808be086d8e6a74972b0b04cebaeb0a948d528b2b15d6d42074ae101183c8d",
+      "bytes": 238347869
+    },
+    {
+      "file": "tokens.txt",
+      "sha256": "d92f88b9ece933daf711e145723a76fd3859aa8a8c3771f1cbb7a721ad067193",
+      "bytes": 399355
+    }
+  ],
+  "import_seconds": 0.6267640420001044,
+  "sdk_version": "1.0.2",
+  "native_provider_params": {
+    "provider": "cpu"
+  },
+  "model_initialize_seconds": 5.997789127000033,
+  "backend_name": "SenseVoice",
+  "component_status": "inference_completed",
+  "recognized_text": "喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂喂。",
+  "text_nonempty": true,
+  "audio_duration_ms_sdk": 9500,
+  "processing_time_ms_sdk": 3089,
+  "rtf_sdk": 0.32515788078308105,
+  "recognition_wall_seconds": 3.0903691690000414,
+  "audio_duration_seconds": 9.5,
+  "wall_rtf": 0.32530201778947804
+}

@@ -1,0 +1,13 @@
+{
+  "client_date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "state": "awaiting_user_recordings",
+  "service_url": "http://127.0.0.1:18791/",
+  "page_http_status": 200,
+  "board_service": "rv-doctor-asr-collector.service",
+  "phase": "idle",
+  "round_id": "round-19e7f20b8f73",
+  "completed_cases": 0,
+  "required_cases": 10,
+  "acceptance_passed": false
+}

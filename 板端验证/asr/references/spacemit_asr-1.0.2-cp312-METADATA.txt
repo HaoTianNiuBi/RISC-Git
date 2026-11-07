@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: spacemit_asr
+Version: 1.0.2
+Summary: Space ASR (Automatic Speech Recognition) Python bindings
+Home-page: https://github.com/muggle/asr
+Author: muggle
+Author-email: muggle <mingjun.rong@spacemit.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/muggle/asr
+Keywords: asr,speech recognition,sensevoice
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: C++
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.19.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: scipy>=1.5.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python

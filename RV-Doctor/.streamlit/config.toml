@@ -1,0 +1,15 @@
+# Streamlit 主题（科技风深色基底；与 app.py 注入的 CSS 配合）
+[theme]
+base = "dark"
+primaryColor = "#38e5ff"
+backgroundColor = "#0a1a33"
+secondaryBackgroundColor = "#0c2144"
+textColor = "#eaf6ff"
+
+[server]
+headless = true
+
+[client]
+# 隐藏 Streamlit 自带的英文工具栏（Deploy 按钮/主菜单/运行状态灯）——
+# 内置界面无官方中文，演示场景下直接隐藏最干净
+toolbarMode = "minimal"

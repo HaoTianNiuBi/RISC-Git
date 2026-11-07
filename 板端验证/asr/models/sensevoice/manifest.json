@@ -1,0 +1,20 @@
+[
+  {
+    "archive_member": "sensevoice/am.mvn",
+    "file": "am.mvn",
+    "bytes": 11203,
+    "sha256": "29b3c740a2c0cfc6b308126d31d7f265fa2be74f3bb095cd2f143ea970896ae5"
+  },
+  {
+    "archive_member": "sensevoice/model_quant_optimized.onnx",
+    "file": "model_quant_optimized.onnx",
+    "bytes": 238347869,
+    "sha256": "0b808be086d8e6a74972b0b04cebaeb0a948d528b2b15d6d42074ae101183c8d"
+  },
+  {
+    "archive_member": "sensevoice/tokens.txt",
+    "file": "tokens.txt",
+    "bytes": 399355,
+    "sha256": "d92f88b9ece933daf711e145723a76fd3859aa8a8c3771f1cbb7a721ad067193"
+  }
+]

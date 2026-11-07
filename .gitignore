@@ -1,0 +1,40 @@
+# ============================================================
+# 公开仓库忽略规则（仓库根 = 本项目根目录）
+# 原则：只入库「可复现的源码 + 小体积证据」；
+#       体积大、可再下载、第三方版权物一律不入库。
+# ============================================================
+
+# ---- 第三方官方资料快照（版权归进迭时空，不入库）----
+K1-官方资料/
+
+# ---- 上游开源代码快照（保留来源链接，不入库）----
+板端验证/asr/source-review/
+
+# ---- 本地工具链与环境（install.bat 可重建）----
+RV-Doctor/tools/
+RV-Doctor/.venv/
+RV-Doctor/dist/
+
+# ---- 运行产物与缓存 ----
+RV-Doctor/workdir/
+RV-Doctor/reports/tmp/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/node_modules/
+**/render/
+**/.streamlit/secrets.toml
+
+# ---- 大体积可再下载资源（用 download_resources.py 还原）----
+板端验证/asr/models/**/*.onnx
+板端验证/asr/downloads/*
+!板端验证/asr/downloads/manifest.json
+
+# ---- 个人语音录音不入库（只保留信号统计 JSON）----
+板端验证/**/*.wav
+
+# ---- 系统与编辑器杂项 ----
+*.lnk
+Thumbs.db
+.DS_Store
+.env

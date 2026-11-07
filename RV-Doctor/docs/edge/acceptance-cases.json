@@ -1,0 +1,726 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "rv-doctor-k1-edge-acceptance-v1",
+  "created_date": "2026-11-06",
+  "language": "zh-CN",
+  "dataset_status": "definitions_only_not_recorded_not_tested",
+  "description": "固定参考文本、意图gold与验收口径；不包含实际录音、ASR输出、模型输出或通过结果。",
+  "normalization": {
+    "id": "zh-cer-nfkc-lower-remove-whitespace-punctuation-v1",
+    "ordered_steps": [
+      "Apply Unicode NFKC to the reference and hypothesis independently.",
+      "Apply Unicode lowercase (lower), not semantic rewriting.",
+      "Remove every Unicode whitespace character (isspace).",
+      "Remove characters whose Unicode general category starts with P (punctuation).",
+      "Keep all remaining characters in their original order."
+    ],
+    "no_equivalence_rewriting": [
+      "同义词",
+      "简繁体",
+      "中文数字与阿拉伯数字",
+      "语气词",
+      "错别字",
+      "技术术语"
+    ],
+    "expected_normalized_is_measured": false,
+    "example": {
+      "reference_text": "比较４线程和８线程！",
+      "expected_normalized": "比较4线程和8线程",
+      "source": "rule_demonstration_not_asr_measurement"
+    }
+  },
+  "intent_output_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": [
+      "intent"
+    ],
+    "properties": {
+      "intent": {
+        "type": "string",
+        "enum": [
+          "start_checkup",
+          "explain_report",
+          "compare_configs",
+          "query_system",
+          "unknown"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "intent_scope": {
+    "core_intents": [
+      "start_checkup",
+      "explain_report",
+      "compare_configs"
+    ],
+    "auxiliary_intents": [
+      "query_system"
+    ],
+    "reject_intent": "unknown",
+    "unknown_behavior": "只能返回unknown并显示澄清或支持范围提示；不得派发体检、报告解释、配置比较、系统查询或其他动作。",
+    "arbitrary_shell_commands_allowed": false,
+    "scope_note": "intent只选择已实现的固定入口，不携带任意命令；参数协议若变化须同时更新schema与验收版本。"
+  },
+  "fixture_context_definition": {
+    "status": "not_prepared",
+    "required_before_intent_tests": [
+      "准备一个固定的当前体检任务，所有开始体检用例均引用该任务。",
+      "准备一份固定的当前报告，所有解释报告用例均引用该报告。",
+      "准备同一任务下四线程、八线程两组配置与可比较的结果；结果尚未产生时应明确提示，不能编造。",
+      "系统查询只允许读取本终端已定义的状态指标。",
+      "冻结提示词、模型版本、推理参数及schema，并记录冷/热状态。"
+    ]
+  },
+  "audio_requirements": {
+    "sample_rate_hz": 16000,
+    "channels": 1,
+    "preferred_file_format": "WAV PCM signed 16-bit",
+    "recording_policy": "朗读reference_text；保留原始录音，重采样副本单独留存并记录来源。参考文本不得事后按识别结果改写。",
+    "existing_microphone_smoke_is_formal_sample": false,
+    "smoke_exclusion_note": "此前喂喂喂等收音冒烟录音仅证明采集链路，不属于本数据集，不计CER、意图正确率或端到端通过数。"
+  },
+  "acceptance": {
+    "asr": {
+      "required_case_ids": [
+        "ASR-01",
+        "ASR-02",
+        "ASR-03",
+        "ASR-04",
+        "ASR-05",
+        "ASR-06",
+        "ASR-07",
+        "ASR-08",
+        "ASR-09",
+        "ASR-10"
+      ],
+      "required_recorded_and_tested_cases": 10,
+      "cer_definition": "对规范化字符序列求Levenshtein距离；CER=(S+D+I)/N，N为规范化参考字符数。",
+      "corpus_cer_definition": "sum(S+D+I over all 10 cases) / sum(N over all 10 cases)",
+      "corpus_cer_max": 0.2,
+      "empty_reference": "invalid_sample_must_not_score",
+      "empty_hypothesis": "count_all_reference_characters_as_deletions",
+      "cer_may_exceed_one": true,
+      "missing_case_policy": "incomplete_not_passed; never drop failed or missing cases from the denominator"
+    },
+    "intent": {
+      "required_case_ids": [
+        "E2E-01",
+        "E2E-02",
+        "E2E-03",
+        "E2E-04",
+        "E2E-05",
+        "E2E-06",
+        "E2E-07",
+        "E2E-08",
+        "E2E-09",
+        "E2E-10",
+        "E2E-11",
+        "E2E-12",
+        "E2E-13",
+        "E2E-14",
+        "E2E-15",
+        "E2E-16",
+        "E2E-17",
+        "E2E-18",
+        "E2E-19",
+        "E2E-20"
+      ],
+      "required_tested_cases_per_mode": 20,
+      "json_schema_valid_rate_min": 1.0,
+      "intent_gold_accuracy_min": 0.9,
+      "minimum_correct_cases": 18,
+      "denominator": 20,
+      "unknown_case_ids": [
+        "E2E-17",
+        "E2E-18",
+        "E2E-19",
+        "E2E-20"
+      ],
+      "unknown_action_dispatches_allowed": 0,
+      "unknown_action_dispatch_is_hard_fail": true,
+      "json_validity_definition": "原始模型输出必须恰好为一个合法JSON对象（前后空白允许），并符合intent_output_schema；代码围栏、解释文字、额外字段、重复键、NaN与Infinity均不合格。",
+      "accuracy_definition": "JSON/schema合格且intent与intent_gold完全一致才算正确；解析失败、schema不符、缺失、超时均计错误。",
+      "fallback_policy": "解析失败时的安全回退unknown可阻止动作，但不能把该次原始输出计为合法或正确。",
+      "report_per_intent_breakdown": true
+    },
+    "test_modes": {
+      "text_intent": "直接把20条reference_text交给意图模块；只验证文本意图链，不能宣称ASR或音频端到端通过。",
+      "audio_asr": "对10条固定真实录音计算CER；不以人工纠正的文字替换ASR原始输出。",
+      "audio_e2e": "20条用例须具备真实录音，经采集/音频输入→ASR→意图→受控派发观察；意图输入必须是ASR原始文本。"
+    },
+    "run_policy": [
+      "每一轮固定数据、提示词、schema、模型、参数与上下文；每例首次有效提交构成该轮成绩。",
+      "重试、换模型或改提示词后另建run_id；保留失败记录，不择优替换原轮结果。",
+      "任一必测样本未录音或未完成测试时，该模式状态为未完成，不得标记通过。",
+      "文本意图通过、ASR通过、音频端到端通过分别报告；不得互相代替。"
+    ],
+    "result_fields_to_record_when_tested": [
+      "run_id",
+      "case_id",
+      "test_mode",
+      "audio_file_or_text_input",
+      "model_and_parameters",
+      "raw_asr_text_if_applicable",
+      "normalized_reference_and_hypothesis_if_applicable",
+      "edit_distance_and_reference_character_count_if_applicable",
+      "raw_intent_output",
+      "json_parse_and_schema_verdict",
+      "predicted_intent",
+      "intent_correct",
+      "observed_dispatch_intent_or_none",
+      "first_content_latency_s",
+      "total_latency_s",
+      "cold_or_warm",
+      "failure_reason_if_any"
+    ]
+  },
+  "asr_cases": [
+    {
+      "case_id": "ASR-01",
+      "reference_text": "开始体检",
+      "expected_normalized": "开始体检",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "start_checkup",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-02",
+      "reference_text": "请对当前任务做一次体检",
+      "expected_normalized": "请对当前任务做一次体检",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "start_checkup",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-03",
+      "reference_text": "解释报告",
+      "expected_normalized": "解释报告",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "explain_report",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-04",
+      "reference_text": "解释刚才的体检结果",
+      "expected_normalized": "解释刚才的体检结果",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "explain_report",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-05",
+      "reference_text": "比较配置",
+      "expected_normalized": "比较配置",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "compare_configs",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-06",
+      "reference_text": "比较四线程和八线程的运行结果",
+      "expected_normalized": "比较四线程和八线程的运行结果",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "compare_configs",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-07",
+      "reference_text": "查看系统状态",
+      "expected_normalized": "查看系统状态",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "query_system",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-08",
+      "reference_text": "现在可用内存还有多少",
+      "expected_normalized": "现在可用内存还有多少",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "query_system",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-09",
+      "reference_text": "帮我订一张明天的电影票",
+      "expected_normalized": "帮我订一张明天的电影票",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "unknown",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "ASR-10",
+      "reference_text": "弄一下",
+      "expected_normalized": "弄一下",
+      "normalization_provenance": "generated_from_reference_text_not_asr_output",
+      "intent_gold": "unknown",
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "asr": "not_tested"
+      },
+      "observations": []
+    }
+  ],
+  "intent_cases": [
+    {
+      "case_id": "E2E-01",
+      "reference_text": "开始体检",
+      "intent_gold": "start_checkup",
+      "source_asr_case_id": "ASR-01",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "start_checkup"
+      },
+      "allowed_dispatch_intents": [
+        "start_checkup"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-02",
+      "reference_text": "请对当前任务做一次体检",
+      "intent_gold": "start_checkup",
+      "source_asr_case_id": "ASR-02",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "start_checkup"
+      },
+      "allowed_dispatch_intents": [
+        "start_checkup"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-03",
+      "reference_text": "跑一遍体检流程",
+      "intent_gold": "start_checkup",
+      "source_asr_case_id": null,
+      "purpose": "同义表达",
+      "expected_json": {
+        "intent": "start_checkup"
+      },
+      "allowed_dispatch_intents": [
+        "start_checkup"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-04",
+      "reference_text": "现在执行一次性能检查",
+      "intent_gold": "start_checkup",
+      "source_asr_case_id": null,
+      "purpose": "同义表达",
+      "expected_json": {
+        "intent": "start_checkup"
+      },
+      "allowed_dispatch_intents": [
+        "start_checkup"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-05",
+      "reference_text": "解释报告",
+      "intent_gold": "explain_report",
+      "source_asr_case_id": "ASR-03",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "explain_report"
+      },
+      "allowed_dispatch_intents": [
+        "explain_report"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-06",
+      "reference_text": "解释刚才的体检结果",
+      "intent_gold": "explain_report",
+      "source_asr_case_id": "ASR-04",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "explain_report"
+      },
+      "allowed_dispatch_intents": [
+        "explain_report"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-07",
+      "reference_text": "帮我说明这份报告的结论",
+      "intent_gold": "explain_report",
+      "source_asr_case_id": null,
+      "purpose": "同义表达",
+      "expected_json": {
+        "intent": "explain_report"
+      },
+      "allowed_dispatch_intents": [
+        "explain_report"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-08",
+      "reference_text": "为什么刚才这份报告的结果会这样",
+      "intent_gold": "explain_report",
+      "source_asr_case_id": null,
+      "purpose": "上下文表达",
+      "expected_json": {
+        "intent": "explain_report"
+      },
+      "allowed_dispatch_intents": [
+        "explain_report"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-09",
+      "reference_text": "比较配置",
+      "intent_gold": "compare_configs",
+      "source_asr_case_id": "ASR-05",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "compare_configs"
+      },
+      "allowed_dispatch_intents": [
+        "compare_configs"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-10",
+      "reference_text": "比较四线程和八线程的运行结果",
+      "intent_gold": "compare_configs",
+      "source_asr_case_id": "ASR-06",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "compare_configs"
+      },
+      "allowed_dispatch_intents": [
+        "compare_configs"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-11",
+      "reference_text": "对比当前这两组配置哪个响应更快",
+      "intent_gold": "compare_configs",
+      "source_asr_case_id": null,
+      "purpose": "同义表达",
+      "expected_json": {
+        "intent": "compare_configs"
+      },
+      "allowed_dispatch_intents": [
+        "compare_configs"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-12",
+      "reference_text": "对比这两组参数的测试结果",
+      "intent_gold": "compare_configs",
+      "source_asr_case_id": null,
+      "purpose": "同义表达",
+      "expected_json": {
+        "intent": "compare_configs"
+      },
+      "allowed_dispatch_intents": [
+        "compare_configs"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-13",
+      "reference_text": "查看系统状态",
+      "intent_gold": "query_system",
+      "source_asr_case_id": "ASR-07",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "query_system"
+      },
+      "allowed_dispatch_intents": [
+        "query_system"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-14",
+      "reference_text": "现在可用内存还有多少",
+      "intent_gold": "query_system",
+      "source_asr_case_id": "ASR-08",
+      "purpose": "固定参考短句",
+      "expected_json": {
+        "intent": "query_system"
+      },
+      "allowed_dispatch_intents": [
+        "query_system"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-15",
+      "reference_text": "处理器现在忙不忙",
+      "intent_gold": "query_system",
+      "source_asr_case_id": null,
+      "purpose": "系统查询",
+      "expected_json": {
+        "intent": "query_system"
+      },
+      "allowed_dispatch_intents": [
+        "query_system"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-16",
+      "reference_text": "请告诉我设备的内存使用情况",
+      "intent_gold": "query_system",
+      "source_asr_case_id": null,
+      "purpose": "系统查询",
+      "expected_json": {
+        "intent": "query_system"
+      },
+      "allowed_dispatch_intents": [
+        "query_system"
+      ],
+      "must_not_dispatch_any_action": false,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-17",
+      "reference_text": "帮我订一张明天的电影票",
+      "intent_gold": "unknown",
+      "source_asr_case_id": "ASR-09",
+      "purpose": "超出支持范围",
+      "expected_json": {
+        "intent": "unknown"
+      },
+      "allowed_dispatch_intents": [],
+      "must_not_dispatch_any_action": true,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-18",
+      "reference_text": "弄一下",
+      "intent_gold": "unknown",
+      "source_asr_case_id": "ASR-10",
+      "purpose": "信息不足，不能擅自补全动作",
+      "expected_json": {
+        "intent": "unknown"
+      },
+      "allowed_dispatch_intents": [],
+      "must_not_dispatch_any_action": true,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-19",
+      "reference_text": "删除系统里的全部文件",
+      "intent_gold": "unknown",
+      "source_asr_case_id": null,
+      "purpose": "不支持的文件删除请求",
+      "expected_json": {
+        "intent": "unknown"
+      },
+      "allowed_dispatch_intents": [],
+      "must_not_dispatch_any_action": true,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    },
+    {
+      "case_id": "E2E-20",
+      "reference_text": "播放一首音乐",
+      "intent_gold": "unknown",
+      "source_asr_case_id": null,
+      "purpose": "超出支持范围",
+      "expected_json": {
+        "intent": "unknown"
+      },
+      "allowed_dispatch_intents": [],
+      "must_not_dispatch_any_action": true,
+      "audio_file": null,
+      "status": {
+        "recording": "not_recorded",
+        "text_intent": "not_tested",
+        "audio_e2e": "not_tested"
+      },
+      "observations": []
+    }
+  ],
+  "actual_test_runs": []
+}

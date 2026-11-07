@@ -1,0 +1,7 @@
+{
+  "one_second_frames": 16000,
+  "passband_1khz_rms": 0.706234252814618,
+  "stopband_10khz_rms": 0.0002080350537378647,
+  "alias_suppression_db": 70.61624515804635,
+  "passed": true
+}

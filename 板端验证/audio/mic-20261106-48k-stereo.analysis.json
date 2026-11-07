@@ -1,0 +1,173 @@
+{
+  "file": "D:\\1比赛集合\\RISC\\板端验证\\audio\\mic-20261106-48k-stereo.wav",
+  "sample_rate": 48000,
+  "channels": 2,
+  "sample_width_bytes": 2,
+  "frames": 384000,
+  "duration_seconds": 8.0,
+  "sha256": "d46699a2e264656afea88c9c1261614282b7147d899c67e77e6bcfac65ed59ea",
+  "channel_stats": [
+    {
+      "channel": 0,
+      "overall": {
+        "peak": 32768,
+        "rms": 133.71,
+        "rms_dbfs": -47.79,
+        "zero_fraction": 0.65563,
+        "clipped_samples": 2
+      },
+      "first_2_seconds": {
+        "peak": 32768,
+        "rms": 267.419,
+        "rms_dbfs": -41.77,
+        "zero_fraction": 0.62252,
+        "clipped_samples": 2
+      },
+      "remaining_seconds": {
+        "peak": 1,
+        "rms": 0.577,
+        "rms_dbfs": -95.08,
+        "zero_fraction": 0.66667,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "channel": 1,
+      "overall": {
+        "peak": 32767,
+        "rms": 63.15,
+        "rms_dbfs": -54.3,
+        "zero_fraction": 0.65747,
+        "clipped_samples": 1
+      },
+      "first_2_seconds": {
+        "peak": 32767,
+        "rms": 126.296,
+        "rms_dbfs": -48.28,
+        "zero_fraction": 0.62989,
+        "clipped_samples": 1
+      },
+      "remaining_seconds": {
+        "peak": 1,
+        "rms": 0.577,
+        "rms_dbfs": -95.08,
+        "zero_fraction": 0.66667,
+        "clipped_samples": 0
+      }
+    }
+  ],
+  "half_second_windows_dbfs": [
+    {
+      "start_seconds": 0.0,
+      "channels": [
+        -35.74,
+        -42.26
+      ]
+    },
+    {
+      "start_seconds": 0.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 1.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 1.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 2.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 2.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 3.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 3.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 4.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 4.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 5.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 5.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 6.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 6.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 7.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 7.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    }
+  ]
+}

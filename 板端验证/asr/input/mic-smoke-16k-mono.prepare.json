@@ -1,0 +1,19 @@
+{
+  "source": "D:\\1比赛集合\\RISC\\板端验证\\audio\\mic-20261106-take4-48k-stereo.wav",
+  "source_sha256": "b12dddaca95fb3c8b323fe6ef7ca496ba0a0846e41df08f6e2fd6d2c61bf0ef4",
+  "source_rate": 48000,
+  "source_channels": 2,
+  "source_frames": 480000,
+  "output": "D:\\1比赛集合\\RISC\\板端验证\\asr\\input\\mic-smoke-16k-mono.wav",
+  "output_sha256": "546bcf1aa64dfaa71b30405bf3e76771da58fe22c2edd26d03abbefd64deb837",
+  "output_rate": 16000,
+  "output_channels": 1,
+  "output_frames": 152000,
+  "duration_seconds": 9.5,
+  "trim_start_seconds": 0.5,
+  "gain_db": 24.0,
+  "clipped_samples": 0,
+  "resampling": "127-tap Hamming-windowed sinc, cutoff 0.45*target_rate, integer decimation",
+  "peak": 741,
+  "purpose": "ASR input preparation; not an ASR accuracy result"
+}

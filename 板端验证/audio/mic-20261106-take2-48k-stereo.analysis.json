@@ -1,0 +1,135 @@
+{
+  "file": "D:\\1比赛集合\\RISC\\板端验证\\audio\\mic-20261106-take2-48k-stereo.wav",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 8.0,
+  "sha256": "cdb944bc67f78f6f3a3eabd1d8402b18e44b95085574bf1ceded04eb0b0cef78",
+  "channel_stats": [
+    {
+      "peak": 14320,
+      "rms_dbfs": -62.5,
+      "zero_fraction": 0.6616,
+      "clipped_samples": 0
+    },
+    {
+      "peak": 14320,
+      "rms_dbfs": -62.5,
+      "zero_fraction": 0.6616,
+      "clipped_samples": 0
+    }
+  ],
+  "half_second_windows_dbfs": [
+    {
+      "start_seconds": 0.0,
+      "channels": [
+        -50.47,
+        -50.47
+      ]
+    },
+    {
+      "start_seconds": 0.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 1.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 1.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 2.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 2.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 3.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 3.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 4.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 4.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 5.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 5.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 6.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 6.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 7.0,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    },
+    {
+      "start_seconds": 7.5,
+      "channels": [
+        -95.08,
+        -95.08
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# 本地工具链（体积大，不入库）
+tools/
+
+# Local Codex/editor state
+.zcode/
+
+# JavaScript dependencies and generated presentation renders
+**/node_modules/
+**/render/
+
+# 历史临时目录；可复用脚本现统一放在 scripts/
+scratch/
+
+workdir/
+reports/tmp/
+
+# Ad-hoc local files
+t.c
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 密钥与环境
+.env
+
+# 系统杂项
+Thumbs.db
+.DS_Store
+
+# 本地离线包与分发产物
+dist/
+
+# 可再生预览与绑定本机路径的快捷方式
+assets/icon_preview.png
+*.lnk

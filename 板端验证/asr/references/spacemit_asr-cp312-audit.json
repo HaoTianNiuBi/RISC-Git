@@ -1,0 +1,86 @@
+{
+  "verified_at_utc": "2026-11-06T12:57:19.132242+00:00",
+  "source_url": "https://git.spacemit.com/api/v4/projects/33/packages/pypi/files/c4900d66fb5cf30cc7e910a669f929fb59aa40ad0e70be7b3cafa012ac0a41f9/spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl",
+  "wheel_file_name": "spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl",
+  "wheel_bytes": 405617,
+  "wheel_sha256": "c4900d66fb5cf30cc7e910a669f929fb59aa40ad0e70be7b3cafa012ac0a41f9",
+  "wheel_not_installed": true,
+  "wheel_not_saved": true,
+  "wheel_tag": "cp312-cp312-linux_riscv64",
+  "metadata_runtime_requires": [
+    "numpy>=1.19.0"
+  ],
+  "contents": [
+    {
+      "name": "spacemit_asr/__init__.py",
+      "bytes": 1217
+    },
+    {
+      "name": "spacemit_asr/_spacemit_asr.cpython-312-riscv64-linux-gnu.so",
+      "bytes": 785312
+    },
+    {
+      "name": "spacemit_asr/callback.py",
+      "bytes": 6741
+    },
+    {
+      "name": "spacemit_asr/engine.py",
+      "bytes": 15801
+    },
+    {
+      "name": "spacemit_asr/stream.py",
+      "bytes": 12914
+    },
+    {
+      "name": "spacemit_asr/utils.py",
+      "bytes": 2693
+    },
+    {
+      "name": "spacemit_asr-1.0.2.dist-info/METADATA",
+      "bytes": 1151
+    },
+    {
+      "name": "spacemit_asr-1.0.2.dist-info/WHEEL",
+      "bytes": 105
+    },
+    {
+      "name": "spacemit_asr-1.0.2.dist-info/top_level.txt",
+      "bytes": 13
+    },
+    {
+      "name": "spacemit_asr-1.0.2.dist-info/RECORD",
+      "bytes": 837
+    }
+  ],
+  "elf_files": [
+    {
+      "member": "spacemit_asr/_spacemit_asr.cpython-312-riscv64-linux-gnu.so",
+      "elf_machine": 243,
+      "elf_flags": "0x5",
+      "dt_needed": [
+        "libfftw3f.so.3",
+        "libonnxruntime.so.1",
+        "libspacemit_ep.so.2",
+        "libsndfile.so.1",
+        "libcurl.so.4",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-riscv64-lp64d.so.1"
+      ],
+      "riscv_arch_strings": [
+        "rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicbom1p0_zicbop1p0_zicboz1p0_zicond1p0_zicsr2p0_zifencei2p0_zmmul1p0_zfh1p0_zfhmin1p0_zba1p0_zbb1p0_zbc1p0_zbs1p0"
+      ]
+    }
+  ],
+  "contains_asr_file_demo": false,
+  "k1_runtime_compatibility": "Python ABI and architecture tag match Python 3.12 riscv64, but import still requires all DT_NEEDED libraries, including libspacemit_ep.so.2. K1 machine-specific compatibility has not been executed or verified by this audit.",
+  "available_cp312_versions_from_official_index": [
+    "1.0.2"
+  ],
+  "no_binary_releases_observed": [
+    "https://github.com/spacemit-com/model-zoo-asr/releases",
+    "https://github.com/spacemit-com/ai-sdk/releases"
+  ]
+}

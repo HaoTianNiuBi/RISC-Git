@@ -1,0 +1,42 @@
+{
+  "prepared_client_date": "2026-11-07",
+  "timezone": "Asia/Shanghai",
+  "purpose": "stage1_ASR_collection_only",
+  "files": [
+    {
+      "file": "capture_acceptance.py",
+      "bytes": 17416,
+      "sha256": "bf6a92fbd38b9fa7aa4d9fd0f054c98a6ad7c55e88bcee1875c476fdd33f0c91"
+    },
+    {
+      "file": "acceptance_eval.py",
+      "bytes": 12265,
+      "sha256": "b4f0e4be38acfb052a720b29d5c17c5d1c6206983a4f71cd83004b1e2af3cb49"
+    },
+    {
+      "file": "prepare_audio.py",
+      "bytes": 3901,
+      "sha256": "0ccf4e1b532a0aaeb121e3d9b36242d212ff21553ad5554cc927e55da8d994fb"
+    },
+    {
+      "file": "collector.html",
+      "bytes": 33135,
+      "sha256": "3586e4ff39da0fe84137a0cc4e6be629c953e744056093f7e6c67839e5165699"
+    },
+    {
+      "file": "setup_collector.py",
+      "bytes": 2679,
+      "sha256": "1b4cae053af8aa5c15d5ea4d8f4d9d52f5dfc897f8d2f6553d3187504b1ddb4d"
+    },
+    {
+      "file": "models/sensevoice/manifest.json",
+      "bytes": 601,
+      "sha256": "030b8b61cce8128a385d3e0ffdeac95882e8575c77b7ba719ba060e1a0f94eef"
+    },
+    {
+      "file": "acceptance-cases.json",
+      "bytes": 23337,
+      "sha256": "dfa6e277b89140b4cce224c45dfe3be16959861c347f9c00962d45bea79002e4"
+    }
+  ]
+}

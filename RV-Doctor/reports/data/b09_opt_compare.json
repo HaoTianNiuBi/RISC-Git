@@ -1,0 +1,34 @@
+{
+  "items": {
+    "O0": {
+      "dynamic_total": 46318,
+      "by_class": {
+        "integer": 30127,
+        "memory": 8452,
+        "branch": 5832,
+        "jump": 1129,
+        "muldiv": 767,
+        "float": 0,
+        "system": 11
+      },
+      "calls": 346,
+      "energy": 68439,
+      "static_total": 14969
+    },
+    "O2": {
+      "dynamic_total": 9075,
+      "by_class": {
+        "integer": 3760,
+        "memory": 2058,
+        "branch": 1651,
+        "jump": 828,
+        "muldiv": 767,
+        "float": 0,
+        "system": 11
+      },
+      "calls": 197,
+      "energy": 16318,
+      "static_total": 14917
+    }
+  }
+}

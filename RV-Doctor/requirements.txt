@@ -1,0 +1,7 @@
+# RV-Doctor Python 依赖（随里程碑推进补充）
+streamlit
+plotly
+pandas
+pytest
+requests
+jsonschema

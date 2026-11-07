@@ -1,0 +1,22 @@
+# RV-Doctor 全局配置（03 文档第 7 节）
+# 相对路径以仓库根目录为基准；工具链按 04 文档便携安装在 tools\ 下。
+
+[tools]
+gcc          = "tools/gcc/bin/riscv-none-elf-gcc.exe"
+objdump      = "tools/gcc/bin/riscv-none-elf-objdump.exe"
+qemu_riscv64 = "tools/qemu/qemu-system-riscv64.exe"
+qemu_riscv32 = "tools/qemu/qemu-system-riscv32.exe"
+
+[timeouts]
+compile = 60.0
+run     = 120.0
+disasm  = 60.0
+
+[energy.weights]
+integer = 1.0
+memory  = 3.0
+branch  = 1.5
+jump    = 1.0
+muldiv  = 4.0
+float   = 8.0
+system  = 1.0

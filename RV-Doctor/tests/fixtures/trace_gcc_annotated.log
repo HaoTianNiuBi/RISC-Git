@@ -1,0 +1,1501 @@
+IN: __libc_init_array
+0x800007b2:  1101              addi                    sp,sp,-32
+
+Trace 0: 000001e980002000 [001411ad/00000000800007b2/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007b4:  e822              sd                      s0,16(sp)
+
+Trace 0: 000001e980002140 [001411ad/00000000800007b4/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007b6:  e04a              sd                      s2,0(sp)
+
+Trace 0: 000001e9800022c0 [001411ad/00000000800007b6/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007b8:  ec06              sd                      ra,24(sp)
+
+Trace 0: 000001e980002440 [001411ad/00000000800007b8/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007ba:  e426              sd                      s1,8(sp)
+
+Trace 0: 000001e9800025c0 [001411ad/00000000800007ba/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007bc:  0000e917          auipc                   s2,14                   # 0x8000e7bc
+
+Trace 0: 000001e980002740 [001411ad/00000000800007bc/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007c0:  04490913          addi                    s2,s2,68
+
+Trace 0: 000001e980002880 [001411ad/00000000800007c0/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007c4:  0000e417          auipc                   s0,14                   # 0x8000e7c4
+
+Trace 0: 000001e9800029c0 [001411ad/00000000800007c4/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007c8:  03c40413          addi                    s0,s0,60
+
+Trace 0: 000001e980002b00 [001411ad/00000000800007c8/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007cc:  00890d63          beq                     s2,s0,26                # 0x800007e6
+
+Trace 0: 000001e980002c40 [001411ad/00000000800007cc/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007e6:  0000e917          auipc                   s2,14                   # 0x8000e7e6
+
+Trace 0: 000001e980002d80 [001411ad/00000000800007e6/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007ea:  02a90913          addi                    s2,s2,42
+
+Trace 0: 000001e980002ec0 [001411ad/00000000800007ea/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007ee:  0000e417          auipc                   s0,14                   # 0x8000e7ee
+
+Trace 0: 000001e980003000 [001411ad/00000000800007ee/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007f2:  01240413          addi                    s0,s0,18
+
+Trace 0: 000001e980003140 [001411ad/00000000800007f2/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007f6:  00890d63          beq                     s2,s0,26                # 0x80000810
+
+Trace 0: 000001e980003280 [001411ad/00000000800007f6/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007fa:  40890933          sub                     s2,s2,s0
+
+Trace 0: 000001e9800033c0 [001411ad/00000000800007fa/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x800007fe:  40395913          srai                    s2,s2,3
+
+Trace 0: 000001e980003500 [001411ad/00000000800007fe/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000802:  4481              mv                      s1,zero
+
+Trace 0: 000001e980003640 [001411ad/0000000080000802/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000804:  601c              ld                      a5,0(s0)
+
+Trace 0: 000001e980003780 [001411ad/0000000080000804/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000806:  0485              addi                    s1,s1,1
+
+Trace 0: 000001e980003900 [001411ad/0000000080000806/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000808:  0421              addi                    s0,s0,8
+
+Trace 0: 000001e980003a40 [001411ad/0000000080000808/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x8000080a:  9782              jalr                    ra,a5,0
+
+Trace 0: 000001e980003b80 [001411ad/000000008000080a/02c24003/ff020201] __libc_init_array
+----------------
+IN: register_fini
+0x800008de:  00000793          mv                      a5,zero
+
+Trace 0: 000001e980003cc0 [001411ad/00000000800008de/02c24003/ff020201] register_fini
+----------------
+IN: register_fini
+0x800008e2:  c791              beqz                    a5,12                   # 0x800008ee
+
+Trace 0: 000001e980003e00 [001411ad/00000000800008e2/02c24003/ff020201] register_fini
+----------------
+IN: register_fini
+0x800008ee:  8082              ret                     
+
+Trace 0: 000001e980003f40 [001411ad/00000000800008ee/02c24003/ff020201] register_fini
+----------------
+IN: __libc_init_array
+0x8000080c:  ff24ece3          bgtu                    s2,s1,-8                # 0x80000804
+
+Trace 0: 000001e980004080 [001411ad/000000008000080c/02c24003/ff020201] __libc_init_array
+Trace 0: 000001e980003780 [001411ad/0000000080000804/02c24003/ff020201] __libc_init_array
+Trace 0: 000001e980003900 [001411ad/0000000080000806/02c24003/ff020201] __libc_init_array
+Trace 0: 000001e980003a40 [001411ad/0000000080000808/02c24003/ff020201] __libc_init_array
+Trace 0: 000001e980003b80 [001411ad/000000008000080a/02c24003/ff020201] __libc_init_array
+----------------
+IN: init_semihosting
+0x80009c68:  1141              addi                    sp,sp,-16
+
+Trace 0: 000001e9800041c0 [001411ad/0000000080009c68/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c6a:  e022              sd                      s0,0(sp)
+
+Trace 0: 000001e980004300 [001411ad/0000000080009c6a/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c6c:  00005417          auipc                   s0,5                    # 0x8000ec6c
+
+Trace 0: 000001e980004480 [001411ad/0000000080009c6c/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c70:  a8c40413          addi                    s0,s0,-1396
+
+Trace 0: 000001e9800045c0 [001411ad/0000000080009c70/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c74:  e406              sd                      ra,8(sp)
+
+Trace 0: 000001e980004700 [001411ad/0000000080009c74/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c76:  87a2              mv                      a5,s0
+
+Trace 0: 000001e980004880 [001411ad/0000000080009c76/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c78:  00005697          auipc                   a3,5                    # 0x8000ec78
+
+Trace 0: 000001e9800049c0 [001411ad/0000000080009c78/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c7c:  b8068693          addi                    a3,a3,-1152
+
+Trace 0: 000001e980004b00 [001411ad/0000000080009c7c/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c80:  577d              addi                    a4,zero,-1
+
+Trace 0: 000001e980004c40 [001411ad/0000000080009c80/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c82:  c398              sw                      a4,0(a5)
+
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c84:  07c1              addi                    a5,a5,16
+
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c86:  fed79ee3          bne                     a5,a3,-4                # 0x80009c82
+
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004d80 [001411ad/0000000080009c82/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004f00 [001411ad/0000000080009c84/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005040 [001411ad/0000000080009c86/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c8a:  4581              mv                      a1,zero
+
+Trace 0: 000001e980005180 [001411ad/0000000080009c8a/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c8c:  00001517          auipc                   a0,1                    # 0x8000ac8c
+
+Trace 0: 000001e9800052c0 [001411ad/0000000080009c8c/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c90:  d0450513          addi                    a0,a0,-764
+
+Trace 0: 000001e980005400 [001411ad/0000000080009c90/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c94:  24c000ef          jal                     ra,588                  # 0x80009ee0
+
+Trace 0: 000001e980005540 [001411ad/0000000080009c94/02c24003/ff020201] init_semihosting
+----------------
+IN: _open
+0x80009ee0:  711d              addi                    sp,sp,-96
+
+Trace 0: 000001e980005680 [001411ad/0000000080009ee0/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ee2:  e4be              sd                      a5,72(sp)
+
+Trace 0: 000001e9800057c0 [001411ad/0000000080009ee2/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ee4:  f406              sd                      ra,40(sp)
+
+Trace 0: 000001e980005940 [001411ad/0000000080009ee4/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ee6:  f832              sd                      a2,48(sp)
+
+Trace 0: 000001e980005ac0 [001411ad/0000000080009ee6/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ee8:  fc36              sd                      a3,56(sp)
+
+Trace 0: 000001e980005c40 [001411ad/0000000080009ee8/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009eea:  e0ba              sd                      a4,64(sp)
+
+Trace 0: 000001e980005dc0 [001411ad/0000000080009eea/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009eec:  e8c2              sd                      a6,80(sp)
+
+Trace 0: 000001e980005f40 [001411ad/0000000080009eec/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009eee:  ecc6              sd                      a7,88(sp)
+
+Trace 0: 000001e9800060c0 [001411ad/0000000080009eee/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ef0:  0035f793          andi                    a5,a1,3
+
+Trace 0: 000001e980006240 [001411ad/0000000080009ef0/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ef4:  cf85              beqz                    a5,56                   # 0x80009f2c
+
+Trace 0: 000001e980006380 [001411ad/0000000080009ef4/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f2c:  e42a              sd                      a0,8(sp)
+
+Trace 0: 000001e9800064c0 [001411ad/0000000080009f2c/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f2e:  e83e              sd                      a5,16(sp)
+
+Trace 0: 000001e980006640 [001411ad/0000000080009f2e/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f30:  db5fa0ef          jal                     ra,-21068               # 0x80004ce4
+
+Trace 0: 000001e9800067c0 [001411ad/0000000080009f30/02c24003/ff020201] _open
+----------------
+IN: strlen
+0x80004ce4:  00757793          andi                    a5,a0,7
+
+Trace 0: 000001e980006900 [001411ad/0000000080004ce4/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004ce8:  872a              mv                      a4,a0
+
+Trace 0: 000001e980006a40 [001411ad/0000000080004ce8/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cea:  efb1              bnez                    a5,92                   # 0x80004d46
+
+Trace 0: 000001e980006b80 [001411ad/0000000080004cea/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cec:  7f7f87b7          lui                     a5,522232
+
+Trace 0: 000001e980006cc0 [001411ad/0000000080004cec/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cf0:  f7f78793          addi                    a5,a5,-129
+
+Trace 0: 000001e980006e00 [001411ad/0000000080004cf0/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cf4:  02079693          slli                    a3,a5,32
+
+Trace 0: 000001e980006f40 [001411ad/0000000080004cf4/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cf8:  96be              add                     a3,a3,a5
+
+Trace 0: 000001e980007080 [001411ad/0000000080004cf8/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cfa:  55fd              addi                    a1,zero,-1
+
+Trace 0: 000001e9800071c0 [001411ad/0000000080004cfa/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cfc:  6310              ld                      a2,0(a4)
+
+Trace 0: 000001e980007300 [001411ad/0000000080004cfc/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004cfe:  0721              addi                    a4,a4,8
+
+Trace 0: 000001e980007480 [001411ad/0000000080004cfe/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d00:  00d677b3          and                     a5,a2,a3
+
+Trace 0: 000001e9800075c0 [001411ad/0000000080004d00/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d04:  97b6              add                     a5,a5,a3
+
+Trace 0: 000001e980007700 [001411ad/0000000080004d04/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d06:  8fd1              or                      a5,a5,a2
+
+Trace 0: 000001e980007840 [001411ad/0000000080004d06/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d08:  8fd5              or                      a5,a5,a3
+
+Trace 0: 000001e980007980 [001411ad/0000000080004d08/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d0a:  feb789e3          beq                     a5,a1,-14               # 0x80004cfc
+
+Trace 0: 000001e980007ac0 [001411ad/0000000080004d0a/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d0e:  ff874783          lbu                     a5,-8(a4)
+
+Trace 0: 000001e980007c00 [001411ad/0000000080004d0e/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d12:  40a706b3          sub                     a3,a4,a0
+
+Trace 0: 000001e980007d80 [001411ad/0000000080004d12/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d16:  c7a9              beqz                    a5,74                   # 0x80004d60
+
+Trace 0: 000001e980007ec0 [001411ad/0000000080004d16/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d18:  ff974783          lbu                     a5,-7(a4)
+
+Trace 0: 000001e980008000 [001411ad/0000000080004d18/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d1c:  cf9d              beqz                    a5,62                   # 0x80004d5a
+
+Trace 0: 000001e980008180 [001411ad/0000000080004d1c/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d1e:  ffa74783          lbu                     a5,-6(a4)
+
+Trace 0: 000001e9800082c0 [001411ad/0000000080004d1e/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d22:  c7a9              beqz                    a5,74                   # 0x80004d6c
+
+Trace 0: 000001e980008440 [001411ad/0000000080004d22/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d24:  ffb74783          lbu                     a5,-5(a4)
+
+Trace 0: 000001e980008580 [001411ad/0000000080004d24/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d28:  cf9d              beqz                    a5,62                   # 0x80004d66
+
+Trace 0: 000001e980008700 [001411ad/0000000080004d28/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d66:  ffb68513          addi                    a0,a3,-5
+
+Trace 0: 000001e980008840 [001411ad/0000000080004d66/02c24003/ff020201] strlen
+----------------
+IN: strlen
+0x80004d6a:  8082              ret                     
+
+Trace 0: 000001e980008980 [001411ad/0000000080004d6a/02c24003/ff020201] strlen
+----------------
+IN: _open
+0x80009f34:  ec2a              sd                      a0,24(sp)
+
+Trace 0: 000001e980008ac0 [001411ad/0000000080009f34/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f36:  002c              addi                    a1,sp,8
+
+Trace 0: 000001e980008c40 [001411ad/0000000080009f36/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f38:  4505              addi                    a0,zero,1
+
+Trace 0: 000001e980008d80 [001411ad/0000000080009f38/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f3a:  00000013          nop                     
+
+Trace 0: 000001e980008ec0 [001411ad/0000000080009f3a/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f3e:  0001              nop                     
+
+Trace 0: 000001e980009000 [001411ad/0000000080009f3e/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f40:  01f01013          slli                    zero,zero,31
+
+Trace 0: 000001e980009140 [001411ad/0000000080009f40/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f44:  00100073          ebreak                  
+
+Trace 0: 000001e980009280 [001411ad/0000000080009f44/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f48:  40705013          srai                    zero,zero,7
+
+Trace 0: 000001e980009380 [001411ad/0000000080009f48/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f4c:  02054963          bltz                    a0,50                   # 0x80009f7e
+
+Trace 0: 000001e9800094c0 [001411ad/0000000080009f4c/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f50:  2501              sext.w                  a0,a0
+
+Trace 0: 000001e980009600 [001411ad/0000000080009f50/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f52:  57fd              addi                    a5,zero,-1
+
+Trace 0: 000001e980009740 [001411ad/0000000080009f52/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f54:  02f50363          beq                     a0,a5,38                # 0x80009f7a
+
+Trace 0: 000001e980009880 [001411ad/0000000080009f54/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f58:  d9fff0ef          jal                     ra,-610                 # 0x80009cf6
+
+Trace 0: 000001e9800099c0 [001411ad/0000000080009f58/02c24003/ff020201] _open
+----------------
+IN: __add_fdentry
+0x80009cf6:  00005817          auipc                   a6,5                    # 0x8000ecf6
+
+Trace 0: 000001e980009b00 [001411ad/0000000080009cf6/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009cfa:  a0280813          addi                    a6,a6,-1534
+
+Trace 0: 000001e980009c40 [001411ad/0000000080009cfa/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009cfe:  8742              mv                      a4,a6
+
+Trace 0: 000001e980009d80 [001411ad/0000000080009cfe/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d00:  4781              mv                      a5,zero
+
+Trace 0: 000001e980009ec0 [001411ad/0000000080009d00/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d02:  567d              addi                    a2,zero,-1
+
+Trace 0: 000001e98000a000 [001411ad/0000000080009d02/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d04:  45c1              addi                    a1,zero,16
+
+Trace 0: 000001e98000a140 [001411ad/0000000080009d04/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d06:  4314              lw                      a3,0(a4)
+
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d08:  0741              addi                    a4,a4,16
+
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d0a:  02c68063          beq                     a3,a2,32                # 0x80009d2a
+
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d2a:  00479713          slli                    a4,a5,4
+
+Trace 0: 000001e98000a680 [001411ad/0000000080009d2a/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d2e:  983a              add                     a6,a6,a4
+
+Trace 0: 000001e98000a7c0 [001411ad/0000000080009d2e/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d30:  00a82023          sw                      a0,0(a6)
+
+Trace 0: 000001e98000a900 [001411ad/0000000080009d30/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d34:  00083423          sd                      zero,8(a6)
+
+Trace 0: 000001e98000aa80 [001411ad/0000000080009d34/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d38:  853e              mv                      a0,a5
+
+Trace 0: 000001e98000ac00 [001411ad/0000000080009d38/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d3a:  8082              ret                     
+
+Trace 0: 000001e98000ad40 [001411ad/0000000080009d3a/02c24003/ff020201] __add_fdentry
+----------------
+IN: _open
+0x80009f5c:  70a2              ld                      ra,40(sp)
+
+Trace 0: 000001e98000ae80 [001411ad/0000000080009f5c/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f5e:  6125              addi                    sp,sp,96
+
+Trace 0: 000001e98000b000 [001411ad/0000000080009f5e/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f60:  8082              ret                     
+
+Trace 0: 000001e98000b140 [001411ad/0000000080009f60/02c24003/ff020201] _open
+----------------
+IN: init_semihosting
+0x80009c98:  00451793          slli                    a5,a0,4
+
+Trace 0: 000001e98000b280 [001411ad/0000000080009c98/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c9c:  97a2              add                     a5,a5,s0
+
+Trace 0: 000001e98000b3c0 [001411ad/0000000080009c9c/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009c9e:  439c              lw                      a5,0(a5)
+
+Trace 0: 000001e98000b500 [001411ad/0000000080009c9e/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ca0:  60100593          addi                    a1,zero,1537
+
+Trace 0: 000001e98000b680 [001411ad/0000000080009ca0/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ca4:  00001517          auipc                   a0,1                    # 0x8000aca4
+
+Trace 0: 000001e98000b7c0 [001411ad/0000000080009ca4/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ca8:  cec50513          addi                    a0,a0,-788
+
+Trace 0: 000001e98000b900 [001411ad/0000000080009ca8/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cac:  c01c              sw                      a5,0(s0)
+
+Trace 0: 000001e98000ba40 [001411ad/0000000080009cac/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cae:  00005797          auipc                   a5,5                    # 0x8000ecae
+
+Trace 0: 000001e98000bbc0 [001411ad/0000000080009cae/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cb2:  a407b923          sd                      zero,-1454(a5)
+
+Trace 0: 000001e98000bd00 [001411ad/0000000080009cb2/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cb6:  22a000ef          jal                     ra,554                  # 0x80009ee0
+
+Trace 0: 000001e98000be80 [001411ad/0000000080009cb6/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005680 [001411ad/0000000080009ee0/02c24003/ff020201] _open
+Trace 0: 000001e9800057c0 [001411ad/0000000080009ee2/02c24003/ff020201] _open
+Trace 0: 000001e980005940 [001411ad/0000000080009ee4/02c24003/ff020201] _open
+Trace 0: 000001e980005ac0 [001411ad/0000000080009ee6/02c24003/ff020201] _open
+Trace 0: 000001e980005c40 [001411ad/0000000080009ee8/02c24003/ff020201] _open
+Trace 0: 000001e980005dc0 [001411ad/0000000080009eea/02c24003/ff020201] _open
+Trace 0: 000001e980005f40 [001411ad/0000000080009eec/02c24003/ff020201] _open
+Trace 0: 000001e9800060c0 [001411ad/0000000080009eee/02c24003/ff020201] _open
+Trace 0: 000001e980006240 [001411ad/0000000080009ef0/02c24003/ff020201] _open
+Trace 0: 000001e980006380 [001411ad/0000000080009ef4/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009ef6:  6015f793          andi                    a5,a1,1537
+
+Trace 0: 000001e98000bfc0 [001411ad/0000000080009ef6/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009efa:  60100713          addi                    a4,zero,1537
+
+Trace 0: 000001e98000c100 [001411ad/0000000080009efa/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009efe:  06e78263          beq                     a5,a4,100               # 0x80009f62
+
+Trace 0: 000001e98000c240 [001411ad/0000000080009efe/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f62:  4791              addi                    a5,zero,4
+
+Trace 0: 000001e98000c380 [001411ad/0000000080009f62/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f64:  b7e1              j                       -56                     # 0x80009f2c
+
+Trace 0: 000001e98000c4c0 [001411ad/0000000080009f64/02c24003/ff020201] _open
+Trace 0: 000001e9800064c0 [001411ad/0000000080009f2c/02c24003/ff020201] _open
+Trace 0: 000001e980006640 [001411ad/0000000080009f2e/02c24003/ff020201] _open
+Trace 0: 000001e9800067c0 [001411ad/0000000080009f30/02c24003/ff020201] _open
+Trace 0: 000001e980006900 [001411ad/0000000080004ce4/02c24003/ff020201] strlen
+Trace 0: 000001e980006a40 [001411ad/0000000080004ce8/02c24003/ff020201] strlen
+Trace 0: 000001e980006b80 [001411ad/0000000080004cea/02c24003/ff020201] strlen
+Trace 0: 000001e980006cc0 [001411ad/0000000080004cec/02c24003/ff020201] strlen
+Trace 0: 000001e980006e00 [001411ad/0000000080004cf0/02c24003/ff020201] strlen
+Trace 0: 000001e980006f40 [001411ad/0000000080004cf4/02c24003/ff020201] strlen
+Trace 0: 000001e980007080 [001411ad/0000000080004cf8/02c24003/ff020201] strlen
+Trace 0: 000001e9800071c0 [001411ad/0000000080004cfa/02c24003/ff020201] strlen
+Trace 0: 000001e980007300 [001411ad/0000000080004cfc/02c24003/ff020201] strlen
+Trace 0: 000001e980007480 [001411ad/0000000080004cfe/02c24003/ff020201] strlen
+Trace 0: 000001e9800075c0 [001411ad/0000000080004d00/02c24003/ff020201] strlen
+Trace 0: 000001e980007700 [001411ad/0000000080004d04/02c24003/ff020201] strlen
+Trace 0: 000001e980007840 [001411ad/0000000080004d06/02c24003/ff020201] strlen
+Trace 0: 000001e980007980 [001411ad/0000000080004d08/02c24003/ff020201] strlen
+Trace 0: 000001e980007ac0 [001411ad/0000000080004d0a/02c24003/ff020201] strlen
+Trace 0: 000001e980007c00 [001411ad/0000000080004d0e/02c24003/ff020201] strlen
+Trace 0: 000001e980007d80 [001411ad/0000000080004d12/02c24003/ff020201] strlen
+Trace 0: 000001e980007ec0 [001411ad/0000000080004d16/02c24003/ff020201] strlen
+Trace 0: 000001e980008000 [001411ad/0000000080004d18/02c24003/ff020201] strlen
+Trace 0: 000001e980008180 [001411ad/0000000080004d1c/02c24003/ff020201] strlen
+Trace 0: 000001e9800082c0 [001411ad/0000000080004d1e/02c24003/ff020201] strlen
+Trace 0: 000001e980008440 [001411ad/0000000080004d22/02c24003/ff020201] strlen
+Trace 0: 000001e980008580 [001411ad/0000000080004d24/02c24003/ff020201] strlen
+Trace 0: 000001e980008700 [001411ad/0000000080004d28/02c24003/ff020201] strlen
+Trace 0: 000001e980008840 [001411ad/0000000080004d66/02c24003/ff020201] strlen
+Trace 0: 000001e980008980 [001411ad/0000000080004d6a/02c24003/ff020201] strlen
+Trace 0: 000001e980008ac0 [001411ad/0000000080009f34/02c24003/ff020201] _open
+Trace 0: 000001e980008c40 [001411ad/0000000080009f36/02c24003/ff020201] _open
+Trace 0: 000001e980008d80 [001411ad/0000000080009f38/02c24003/ff020201] _open
+Trace 0: 000001e980008ec0 [001411ad/0000000080009f3a/02c24003/ff020201] _open
+Trace 0: 000001e980009000 [001411ad/0000000080009f3e/02c24003/ff020201] _open
+Trace 0: 000001e980009140 [001411ad/0000000080009f40/02c24003/ff020201] _open
+Trace 0: 000001e980009280 [001411ad/0000000080009f44/02c24003/ff020201] _open
+Trace 0: 000001e980009380 [001411ad/0000000080009f48/02c24003/ff020201] _open
+Trace 0: 000001e9800094c0 [001411ad/0000000080009f4c/02c24003/ff020201] _open
+Trace 0: 000001e980009600 [001411ad/0000000080009f50/02c24003/ff020201] _open
+Trace 0: 000001e980009740 [001411ad/0000000080009f52/02c24003/ff020201] _open
+Trace 0: 000001e980009880 [001411ad/0000000080009f54/02c24003/ff020201] _open
+Trace 0: 000001e9800099c0 [001411ad/0000000080009f58/02c24003/ff020201] _open
+Trace 0: 000001e980009b00 [001411ad/0000000080009cf6/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009c40 [001411ad/0000000080009cfa/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009d80 [001411ad/0000000080009cfe/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009ec0 [001411ad/0000000080009d00/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a000 [001411ad/0000000080009d02/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a140 [001411ad/0000000080009d04/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d0e:  2785              addiw                   a5,a5,1
+
+Trace 0: 000001e98000c600 [001411ad/0000000080009d0e/02c24003/ff020201] __add_fdentry
+----------------
+IN: __add_fdentry
+0x80009d10:  feb79be3          bne                     a5,a1,-10               # 0x80009d06
+
+Trace 0: 000001e98000c740 [001411ad/0000000080009d10/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a680 [001411ad/0000000080009d2a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a7c0 [001411ad/0000000080009d2e/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a900 [001411ad/0000000080009d30/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000aa80 [001411ad/0000000080009d34/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ac00 [001411ad/0000000080009d38/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ad40 [001411ad/0000000080009d3a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ae80 [001411ad/0000000080009f5c/02c24003/ff020201] _open
+Trace 0: 000001e98000b000 [001411ad/0000000080009f5e/02c24003/ff020201] _open
+Trace 0: 000001e98000b140 [001411ad/0000000080009f60/02c24003/ff020201] _open
+----------------
+IN: init_semihosting
+0x80009cba:  00451793          slli                    a5,a0,4
+
+Trace 0: 000001e98000c880 [001411ad/0000000080009cba/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cbe:  97a2              add                     a5,a5,s0
+
+Trace 0: 000001e98000c9c0 [001411ad/0000000080009cbe/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cc0:  439c              lw                      a5,0(a5)
+
+Trace 0: 000001e98000cb00 [001411ad/0000000080009cc0/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cc2:  20900593          addi                    a1,zero,521
+
+Trace 0: 000001e98000cc80 [001411ad/0000000080009cc2/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cc6:  00001517          auipc                   a0,1                    # 0x8000acc6
+
+Trace 0: 000001e98000cdc0 [001411ad/0000000080009cc6/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cca:  cca50513          addi                    a0,a0,-822
+
+Trace 0: 000001e98000cf00 [001411ad/0000000080009cca/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cce:  c81c              sw                      a5,16(s0)
+
+Trace 0: 000001e98000d040 [001411ad/0000000080009cce/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cd0:  00005797          auipc                   a5,5                    # 0x8000ecd0
+
+Trace 0: 000001e98000d1c0 [001411ad/0000000080009cd0/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cd4:  a407b023          sd                      zero,-1472(a5)
+
+Trace 0: 000001e98000d300 [001411ad/0000000080009cd4/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cd8:  208000ef          jal                     ra,520                  # 0x80009ee0
+
+Trace 0: 000001e98000d480 [001411ad/0000000080009cd8/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980005680 [001411ad/0000000080009ee0/02c24003/ff020201] _open
+Trace 0: 000001e9800057c0 [001411ad/0000000080009ee2/02c24003/ff020201] _open
+Trace 0: 000001e980005940 [001411ad/0000000080009ee4/02c24003/ff020201] _open
+Trace 0: 000001e980005ac0 [001411ad/0000000080009ee6/02c24003/ff020201] _open
+Trace 0: 000001e980005c40 [001411ad/0000000080009ee8/02c24003/ff020201] _open
+Trace 0: 000001e980005dc0 [001411ad/0000000080009eea/02c24003/ff020201] _open
+Trace 0: 000001e980005f40 [001411ad/0000000080009eec/02c24003/ff020201] _open
+Trace 0: 000001e9800060c0 [001411ad/0000000080009eee/02c24003/ff020201] _open
+Trace 0: 000001e980006240 [001411ad/0000000080009ef0/02c24003/ff020201] _open
+Trace 0: 000001e980006380 [001411ad/0000000080009ef4/02c24003/ff020201] _open
+Trace 0: 000001e98000bfc0 [001411ad/0000000080009ef6/02c24003/ff020201] _open
+Trace 0: 000001e98000c100 [001411ad/0000000080009efa/02c24003/ff020201] _open
+Trace 0: 000001e98000c240 [001411ad/0000000080009efe/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f02:  2095f793          andi                    a5,a1,521
+
+Trace 0: 000001e98000d5c0 [001411ad/0000000080009f02/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f06:  20900713          addi                    a4,zero,521
+
+Trace 0: 000001e98000d700 [001411ad/0000000080009f06/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f0a:  06e78063          beq                     a5,a4,96                # 0x80009f6a
+
+Trace 0: 000001e98000d840 [001411ad/0000000080009f0a/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f6a:  47a1              addi                    a5,zero,8
+
+Trace 0: 000001e98000d980 [001411ad/0000000080009f6a/02c24003/ff020201] _open
+----------------
+IN: _open
+0x80009f6c:  b7c1              j                       -64                     # 0x80009f2c
+
+Trace 0: 000001e98000dac0 [001411ad/0000000080009f6c/02c24003/ff020201] _open
+Trace 0: 000001e9800064c0 [001411ad/0000000080009f2c/02c24003/ff020201] _open
+Trace 0: 000001e980006640 [001411ad/0000000080009f2e/02c24003/ff020201] _open
+Trace 0: 000001e9800067c0 [001411ad/0000000080009f30/02c24003/ff020201] _open
+Trace 0: 000001e980006900 [001411ad/0000000080004ce4/02c24003/ff020201] strlen
+Trace 0: 000001e980006a40 [001411ad/0000000080004ce8/02c24003/ff020201] strlen
+Trace 0: 000001e980006b80 [001411ad/0000000080004cea/02c24003/ff020201] strlen
+Trace 0: 000001e980006cc0 [001411ad/0000000080004cec/02c24003/ff020201] strlen
+Trace 0: 000001e980006e00 [001411ad/0000000080004cf0/02c24003/ff020201] strlen
+Trace 0: 000001e980006f40 [001411ad/0000000080004cf4/02c24003/ff020201] strlen
+Trace 0: 000001e980007080 [001411ad/0000000080004cf8/02c24003/ff020201] strlen
+Trace 0: 000001e9800071c0 [001411ad/0000000080004cfa/02c24003/ff020201] strlen
+Trace 0: 000001e980007300 [001411ad/0000000080004cfc/02c24003/ff020201] strlen
+Trace 0: 000001e980007480 [001411ad/0000000080004cfe/02c24003/ff020201] strlen
+Trace 0: 000001e9800075c0 [001411ad/0000000080004d00/02c24003/ff020201] strlen
+Trace 0: 000001e980007700 [001411ad/0000000080004d04/02c24003/ff020201] strlen
+Trace 0: 000001e980007840 [001411ad/0000000080004d06/02c24003/ff020201] strlen
+Trace 0: 000001e980007980 [001411ad/0000000080004d08/02c24003/ff020201] strlen
+Trace 0: 000001e980007ac0 [001411ad/0000000080004d0a/02c24003/ff020201] strlen
+Trace 0: 000001e980007c00 [001411ad/0000000080004d0e/02c24003/ff020201] strlen
+Trace 0: 000001e980007d80 [001411ad/0000000080004d12/02c24003/ff020201] strlen
+Trace 0: 000001e980007ec0 [001411ad/0000000080004d16/02c24003/ff020201] strlen
+Trace 0: 000001e980008000 [001411ad/0000000080004d18/02c24003/ff020201] strlen
+Trace 0: 000001e980008180 [001411ad/0000000080004d1c/02c24003/ff020201] strlen
+Trace 0: 000001e9800082c0 [001411ad/0000000080004d1e/02c24003/ff020201] strlen
+Trace 0: 000001e980008440 [001411ad/0000000080004d22/02c24003/ff020201] strlen
+Trace 0: 000001e980008580 [001411ad/0000000080004d24/02c24003/ff020201] strlen
+Trace 0: 000001e980008700 [001411ad/0000000080004d28/02c24003/ff020201] strlen
+Trace 0: 000001e980008840 [001411ad/0000000080004d66/02c24003/ff020201] strlen
+Trace 0: 000001e980008980 [001411ad/0000000080004d6a/02c24003/ff020201] strlen
+Trace 0: 000001e980008ac0 [001411ad/0000000080009f34/02c24003/ff020201] _open
+Trace 0: 000001e980008c40 [001411ad/0000000080009f36/02c24003/ff020201] _open
+Trace 0: 000001e980008d80 [001411ad/0000000080009f38/02c24003/ff020201] _open
+Trace 0: 000001e980008ec0 [001411ad/0000000080009f3a/02c24003/ff020201] _open
+Trace 0: 000001e980009000 [001411ad/0000000080009f3e/02c24003/ff020201] _open
+Trace 0: 000001e980009140 [001411ad/0000000080009f40/02c24003/ff020201] _open
+Trace 0: 000001e980009280 [001411ad/0000000080009f44/02c24003/ff020201] _open
+Trace 0: 000001e980009380 [001411ad/0000000080009f48/02c24003/ff020201] _open
+Trace 0: 000001e9800094c0 [001411ad/0000000080009f4c/02c24003/ff020201] _open
+Trace 0: 000001e980009600 [001411ad/0000000080009f50/02c24003/ff020201] _open
+Trace 0: 000001e980009740 [001411ad/0000000080009f52/02c24003/ff020201] _open
+Trace 0: 000001e980009880 [001411ad/0000000080009f54/02c24003/ff020201] _open
+Trace 0: 000001e9800099c0 [001411ad/0000000080009f58/02c24003/ff020201] _open
+Trace 0: 000001e980009b00 [001411ad/0000000080009cf6/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009c40 [001411ad/0000000080009cfa/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009d80 [001411ad/0000000080009cfe/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e980009ec0 [001411ad/0000000080009d00/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a000 [001411ad/0000000080009d02/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a140 [001411ad/0000000080009d04/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000c600 [001411ad/0000000080009d0e/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000c740 [001411ad/0000000080009d10/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000c600 [001411ad/0000000080009d0e/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000c740 [001411ad/0000000080009d10/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a280 [001411ad/0000000080009d06/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a400 [001411ad/0000000080009d08/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a540 [001411ad/0000000080009d0a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a680 [001411ad/0000000080009d2a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a7c0 [001411ad/0000000080009d2e/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000a900 [001411ad/0000000080009d30/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000aa80 [001411ad/0000000080009d34/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ac00 [001411ad/0000000080009d38/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ad40 [001411ad/0000000080009d3a/02c24003/ff020201] __add_fdentry
+Trace 0: 000001e98000ae80 [001411ad/0000000080009f5c/02c24003/ff020201] _open
+Trace 0: 000001e98000b000 [001411ad/0000000080009f5e/02c24003/ff020201] _open
+Trace 0: 000001e98000b140 [001411ad/0000000080009f60/02c24003/ff020201] _open
+----------------
+IN: init_semihosting
+0x80009cdc:  00451793          slli                    a5,a0,4
+
+Trace 0: 000001e98000dc00 [001411ad/0000000080009cdc/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ce0:  97a2              add                     a5,a5,s0
+
+Trace 0: 000001e98000dd40 [001411ad/0000000080009ce0/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ce2:  439c              lw                      a5,0(a5)
+
+Trace 0: 000001e98000de80 [001411ad/0000000080009ce2/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ce4:  60a2              ld                      ra,8(sp)
+
+Trace 0: 000001e98000e000 [001411ad/0000000080009ce4/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009ce6:  00005717          auipc                   a4,5                    # 0x8000ece6
+
+Trace 0: 000001e98000e180 [001411ad/0000000080009ce6/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cea:  a2073d23          sd                      zero,-1478(a4)
+
+Trace 0: 000001e98000e2c0 [001411ad/0000000080009cea/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cee:  d01c              sw                      a5,32(s0)
+
+Trace 0: 000001e98000e440 [001411ad/0000000080009cee/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cf0:  6402              ld                      s0,0(sp)
+
+Trace 0: 000001e98000e5c0 [001411ad/0000000080009cf0/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cf2:  0141              addi                    sp,sp,16
+
+Trace 0: 000001e98000e740 [001411ad/0000000080009cf2/02c24003/ff020201] init_semihosting
+----------------
+IN: init_semihosting
+0x80009cf4:  8082              ret                     
+
+Trace 0: 000001e98000e880 [001411ad/0000000080009cf4/02c24003/ff020201] init_semihosting
+Trace 0: 000001e980004080 [001411ad/000000008000080c/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000810:  60e2              ld                      ra,24(sp)
+
+Trace 0: 000001e98000e9c0 [001411ad/0000000080000810/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000812:  6442              ld                      s0,16(sp)
+
+Trace 0: 000001e98000eb40 [001411ad/0000000080000812/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000814:  64a2              ld                      s1,8(sp)
+
+Trace 0: 000001e98000ecc0 [001411ad/0000000080000814/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000816:  6902              ld                      s2,0(sp)
+
+Trace 0: 000001e98000ee40 [001411ad/0000000080000816/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x80000818:  6105              addi                    sp,sp,32
+
+Trace 0: 000001e98000efc0 [001411ad/0000000080000818/02c24003/ff020201] __libc_init_array
+----------------
+IN: __libc_init_array
+0x8000081a:  8082              ret                     
+
+Trace 0: 000001e98000f100 [001411ad/000000008000081a/02c24003/ff020201] __libc_init_array
+----------------
+IN: 
+0x8000003c:  00a000ef          jal                     ra,10                   # 0x80000046
+
+Trace 0: 000001e98000f240 [001411ad/000000008000003c/02c24003/ff020201] 
+----------------
+IN: main
+0x80000046:  1101              addi                    sp,sp,-32
+
+Trace 0: 000001e98000f380 [001411ad/0000000080000046/02c24003/ff020201] main
+----------------
+IN: main
+0x80000048:  ec06              sd                      ra,24(sp)
+
+Trace 0: 000001e98000f4c0 [001411ad/0000000080000048/02c24003/ff020201] main
+----------------
+IN: main
+0x8000004a:  e822              sd                      s0,16(sp)
+
+Trace 0: 000001e98000f640 [001411ad/000000008000004a/02c24003/ff020201] main
+----------------
+IN: main
+0x8000004c:  1000              addi                    s0,sp,32
+
+Trace 0: 000001e98000f7c0 [001411ad/000000008000004c/02c24003/ff020201] main
+----------------
+IN: main
+0x8000004e:  013537b7          lui                     a5,4947
+
+Trace 0: 000001e98000f900 [001411ad/000000008000004e/02c24003/ff020201] main
+----------------
+IN: main
+0x80000052:  83578793          addi                    a5,a5,-1995
+
+Trace 0: 000001e98000fa40 [001411ad/0000000080000052/02c24003/ff020201] main
+----------------
+IN: main
+0x80000056:  fef42623          sw                      a5,-20(s0)
+
+Trace 0: 000001e98000fb80 [001411ad/0000000080000056/02c24003/ff020201] main
+----------------
+IN: main
+0x8000005a:  fe042423          sw                      zero,-24(s0)
+
+Trace 0: 000001e98000fd00 [001411ad/000000008000005a/02c24003/ff020201] main
+----------------
+IN: main
+0x8000005e:  a0b1              j                       76                      # 0x800000aa
+
+Trace 0: 000001e98000fe80 [001411ad/000000008000005e/02c24003/ff020201] main
+----------------
+IN: main
+0x800000aa:  fe842783          lw                      a5,-24(s0)
+
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+----------------
+IN: main
+0x800000ae:  0007871b          sext.w                  a4,a5
+
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+----------------
+IN: main
+0x800000b2:  7cf00793          addi                    a5,zero,1999
+
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+----------------
+IN: main
+0x800000b6:  fae7d5e3          ble                     a4,a5,-86               # 0x80000060
+
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+----------------
+IN: main
+0x80000060:  fec42783          lw                      a5,-20(s0)
+
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+----------------
+IN: main
+0x80000064:  873e              mv                      a4,a5
+
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+----------------
+IN: main
+0x80000066:  41c657b7          lui                     a5,269413
+
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+----------------
+IN: main
+0x8000006a:  e6d7879b          addiw                   a5,a5,-403
+
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+----------------
+IN: main
+0x8000006e:  02f707bb          mulw                    a5,a4,a5
+
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+----------------
+IN: main
+0x80000072:  0007871b          sext.w                  a4,a5
+
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+----------------
+IN: main
+0x80000076:  678d              lui                     a5,3
+
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+----------------
+IN: main
+0x80000078:  0397879b          addiw                   a5,a5,57
+
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+----------------
+IN: main
+0x8000007c:  9fb9              addw                    a5,a5,a4
+
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+----------------
+IN: main
+0x8000007e:  fef42623          sw                      a5,-20(s0)
+
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+----------------
+IN: main
+0x80000082:  fec42783          lw                      a5,-20(s0)
+
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+----------------
+IN: main
+0x80000086:  0107d79b          srliw                   a5,a5,16
+
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+----------------
+IN: main
+0x8000008a:  2781              sext.w                  a5,a5
+
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+----------------
+IN: main
+0x8000008c:  86be              mv                      a3,a5
+
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+----------------
+IN: main
+0x8000008e:  0000c717          auipc                   a4,12                   # 0x8000c08e
+
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+----------------
+IN: main
+0x80000092:  fda70713          addi                    a4,a4,-38
+
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+----------------
+IN: main
+0x80000096:  fe842783          lw                      a5,-24(s0)
+
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+----------------
+IN: main
+0x8000009a:  078a              slli                    a5,a5,2
+
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+----------------
+IN: main
+0x8000009c:  97ba              add                     a5,a5,a4
+
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+----------------
+IN: main
+0x8000009e:  c394              sw                      a3,0(a5)
+
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+----------------
+IN: main
+0x800000a0:  fe842783          lw                      a5,-24(s0)
+
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+----------------
+IN: main
+0x800000a4:  2785              addiw                   a5,a5,1
+
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+----------------
+IN: main
+0x800000a6:  fef42423          sw                      a5,-24(s0)
+
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main
+Trace 0: 000001e980011200 [001411ad/0000000080000082/02c24003/ff020201] main
+Trace 0: 000001e980011380 [001411ad/0000000080000086/02c24003/ff020201] main
+Trace 0: 000001e9800114c0 [001411ad/000000008000008a/02c24003/ff020201] main
+Trace 0: 000001e980011600 [001411ad/000000008000008c/02c24003/ff020201] main
+Trace 0: 000001e980011740 [001411ad/000000008000008e/02c24003/ff020201] main
+Trace 0: 000001e980011880 [001411ad/0000000080000092/02c24003/ff020201] main
+Trace 0: 000001e9800119c0 [001411ad/0000000080000096/02c24003/ff020201] main
+Trace 0: 000001e980011b40 [001411ad/000000008000009a/02c24003/ff020201] main
+Trace 0: 000001e980011c80 [001411ad/000000008000009c/02c24003/ff020201] main
+Trace 0: 000001e980011dc0 [001411ad/000000008000009e/02c24003/ff020201] main
+Trace 0: 000001e980011f40 [001411ad/00000000800000a0/02c24003/ff020201] main
+Trace 0: 000001e9800120c0 [001411ad/00000000800000a4/02c24003/ff020201] main
+Trace 0: 000001e980012200 [001411ad/00000000800000a6/02c24003/ff020201] main
+Trace 0: 000001e98000ffc0 [001411ad/00000000800000aa/02c24003/ff020201] main
+Trace 0: 000001e980010140 [001411ad/00000000800000ae/02c24003/ff020201] main
+Trace 0: 000001e980010280 [001411ad/00000000800000b2/02c24003/ff020201] main
+Trace 0: 000001e9800103c0 [001411ad/00000000800000b6/02c24003/ff020201] main
+Trace 0: 000001e980010500 [001411ad/0000000080000060/02c24003/ff020201] main
+Trace 0: 000001e980010680 [001411ad/0000000080000064/02c24003/ff020201] main
+Trace 0: 000001e9800107c0 [001411ad/0000000080000066/02c24003/ff020201] main
+Trace 0: 000001e980010900 [001411ad/000000008000006a/02c24003/ff020201] main
+Trace 0: 000001e980010a40 [001411ad/000000008000006e/02c24003/ff020201] main
+Trace 0: 000001e980010b80 [001411ad/0000000080000072/02c24003/ff020201] main
+Trace 0: 000001e980010cc0 [001411ad/0000000080000076/02c24003/ff020201] main
+Trace 0: 000001e980010e00 [001411ad/0000000080000078/02c24003/ff020201] main
+Trace 0: 000001e980010f40 [001411ad/000000008000007c/02c24003/ff020201] main
+Trace 0: 000001e980011080 [001411ad/000000008000007e/02c24003/ff020201] main

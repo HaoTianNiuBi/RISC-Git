@@ -1,0 +1,9 @@
+{
+  "source_file": "D:\\1比赛集合\\RISC\\板端验证\\audio\\mic-20261106-take4-48k-stereo.wav",
+  "preview_file": "D:\\1比赛集合\\RISC\\板端验证\\audio\\mic-20261106-take4-preview.wav",
+  "start_trim_seconds": 0.5,
+  "gain_db": 24.0,
+  "source_peak_after_trim": 47,
+  "duration_seconds": 9.5,
+  "purpose": "Playback aid only; not proof of speech recognition or improved microphone capture."
+}

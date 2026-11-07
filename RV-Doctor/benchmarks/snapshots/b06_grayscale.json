@@ -1,0 +1,1035 @@
+{
+  "meta": {
+    "task_id": "t-20260917-232821-1c5e",
+    "toolchain": "riscv-none-elf-gcc.exe (xPack GNU RISC-V Embedded GCC x86_64) 15.2.0",
+    "qemu": "QEMU emulator version 11.1.0 (v11.1.0-12130-ge470268ff4)",
+    "arch": "rv64gc",
+    "opt": "O0",
+    "benchmark": "b06_grayscale",
+    "diagnostics": {
+      "unclassified_mnemonics": [
+        "negw"
+      ],
+      "exec_without_mnemonic": 0,
+      "boot_rom_instructions": 6,
+      "trace_truncated": false,
+      "stdout_truncated": false
+    }
+  },
+  "static": {
+    "total_instructions": 14973,
+    "text_bytes": 42516,
+    "by_mnemonic": {
+      "auipc": 262,
+      "addi": 1332,
+      "li": 1356,
+      "lui": 100,
+      "sd": 1537,
+      "csrs": 16,
+      "bgeu": 81,
+      "j": 811,
+      "jal": 455,
+      "sw": 325,
+      "lw": 297,
+      "mv": 1366,
+      "addiw": 355,
+      "mulw": 11,
+      "sext.w": 105,
+      "addw": 94,
+      "srliw": 52,
+      "zext.b": 42,
+      "add": 328,
+      "sb": 182,
+      "bge": 116,
+      "lbu": 240,
+      "fcvt.s.wu": 3,
+      "flw": 5,
+      "fmul.s": 4,
+      "fadd.s": 2,
+      "fsw": 1,
+      "fcvt.w.s": 1,
+      "ld": 1608,
+      "ret": 273,
+      "beqz": 527,
+      "jalr": 27,
+      "beq": 216,
+      "andi": 345,
+      "bnez": 405,
+      "lhu": 30,
+      "blez": 38,
+      "slli": 328,
+      "srli": 146,
+      "mul": 7,
+      "lh": 54,
+      "or": 111,
+      "bne": 96,
+      "bltz": 71,
+      "and": 63,
+      "sh": 35,
+      "jr": 9,
+      "sub": 76,
+      "srai": 27,
+      "bltu": 132,
+      "sllw": 13,
+      "blt": 72,
+      "neg": 5,
+      "ori": 93,
+      "sraiw": 35,
+      "sll": 8,
+      "slliw": 48,
+      "bgez": 55,
+      "slti": 8,
+      "not": 26,
+      "subw": 103,
+      "bgtz": 24,
+      "fld": 58,
+      "fsd": 8,
+      "fclass.d": 2,
+      "snez": 20,
+      "fmv.d.x": 29,
+      "flt.d": 13,
+      "feq.d": 14,
+      "negw": 9,
+      "fmul.d": 14,
+      "fcvt.w.d": 7,
+      "fcvt.d.w": 11,
+      "fsub.d": 9,
+      "mulhu": 9,
+      "fneg.d": 6,
+      "seqz": 3,
+      "srl": 5,
+      "xori": 4,
+      "divw": 1,
+      "xor": 4,
+      "sltiu": 22,
+      "mulh": 1,
+      "fmv.x.d": 10,
+      "divuw": 1,
+      "lwu": 1,
+      "srlw": 9,
+      "fcvt.d.wu": 1,
+      "fmadd.d": 5,
+      "fdiv.d": 6,
+      "slt": 1,
+      "fnmsub.d": 2,
+      "fle.d": 1,
+      "fadd.d": 2,
+      "sltu": 3,
+      "sraw": 1,
+      "remu": 3,
+      "divu": 4,
+      "nop": 61,
+      "ebreak": 17,
+      "unimp": 2,
+      "frrm": 1
+    },
+    "functions": [
+      {
+        "name": "_start",
+        "instructions": 23,
+        "section": ".text"
+      },
+      {
+        "name": "main",
+        "instructions": 114,
+        "section": ".text"
+      },
+      {
+        "name": "exit",
+        "instructions": 11,
+        "section": ".text"
+      },
+      {
+        "name": "stdio_exit_handler",
+        "instructions": 6,
+        "section": ".text"
+      },
+      {
+        "name": "cleanup_stdio",
+        "instructions": 28,
+        "section": ".text"
+      },
+      {
+        "name": "__fp_lock",
+        "instructions": 16,
+        "section": ".text"
+      },
+      {
+        "name": "__fp_unlock",
+        "instructions": 16,
+        "section": ".text"
+      },
+      {
+        "name": "global_stdio_init.part.0",
+        "instructions": 96,
+        "section": ".text"
+      },
+      {
+        "name": "__sfp",
+        "instructions": 83,
+        "section": ".text"
+      },
+      {
+        "name": "__sinit",
+        "instructions": 24,
+        "section": ".text"
+      },
+      {
+        "name": "__sfp_lock_acquire",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__sfp_lock_release",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__fp_lock_all",
+        "instructions": 11,
+        "section": ".text"
+      },
+      {
+        "name": "__fp_unlock_all",
+        "instructions": 11,
+        "section": ".text"
+      },
+      {
+        "name": "_fwalk_sglue",
+        "instructions": 51,
+        "section": ".text"
+      },
+      {
+        "name": "_printf_r",
+        "instructions": 18,
+        "section": ".text"
+      },
+      {
+        "name": "printf",
+        "instructions": 19,
+        "section": ".text"
+      },
+      {
+        "name": "__sread",
+        "instructions": 23,
+        "section": ".text"
+      },
+      {
+        "name": "__seofread",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__swrite",
+        "instructions": 34,
+        "section": ".text"
+      },
+      {
+        "name": "__sseek",
+        "instructions": 25,
+        "section": ".text"
+      },
+      {
+        "name": "__sclose",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_close_r",
+        "instructions": 20,
+        "section": ".text"
+      },
+      {
+        "name": "_reclaim_reent",
+        "instructions": 57,
+        "section": ".text"
+      },
+      {
+        "name": "_lseek_r",
+        "instructions": 23,
+        "section": ".text"
+      },
+      {
+        "name": "_read_r",
+        "instructions": 23,
+        "section": ".text"
+      },
+      {
+        "name": "_write_r",
+        "instructions": 23,
+        "section": ".text"
+      },
+      {
+        "name": "__libc_init_array",
+        "instructions": 37,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_init",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_init_recursive",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_close",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_close_recursive",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_acquire",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_acquire_recursive",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_try_acquire",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_try_acquire_recursive",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_release",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "__retarget_lock_release_recursive",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "memset",
+        "instructions": 55,
+        "section": ".text"
+      },
+      {
+        "name": "register_fini",
+        "instructions": 6,
+        "section": ".text"
+      },
+      {
+        "name": "__call_exitprocs",
+        "instructions": 92,
+        "section": ".text"
+      },
+      {
+        "name": "atexit",
+        "instructions": 5,
+        "section": ".text"
+      },
+      {
+        "name": "_malloc_trim_r",
+        "instructions": 76,
+        "section": ".text"
+      },
+      {
+        "name": "_free_r",
+        "instructions": 193,
+        "section": ".text"
+      },
+      {
+        "name": "_malloc_r",
+        "instructions": 562,
+        "section": ".text"
+      },
+      {
+        "name": "__malloc_lock",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__malloc_unlock",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_vfprintf_r",
+        "instructions": 3213,
+        "section": ".text"
+      },
+      {
+        "name": "vfprintf",
+        "instructions": 6,
+        "section": ".text"
+      },
+      {
+        "name": "__sbprintf",
+        "instructions": 57,
+        "section": ".text"
+      },
+      {
+        "name": "__sprint_r",
+        "instructions": 15,
+        "section": ".text"
+      },
+      {
+        "name": "_fclose_r",
+        "instructions": 91,
+        "section": ".text"
+      },
+      {
+        "name": "fclose",
+        "instructions": 3,
+        "section": ".text"
+      },
+      {
+        "name": "__sflush_r",
+        "instructions": 151,
+        "section": ".text"
+      },
+      {
+        "name": "_fflush_r",
+        "instructions": 50,
+        "section": ".text"
+      },
+      {
+        "name": "fflush",
+        "instructions": 56,
+        "section": ".text"
+      },
+      {
+        "name": "__sfvwrite_r",
+        "instructions": 310,
+        "section": ".text"
+      },
+      {
+        "name": "__swsetup_r",
+        "instructions": 89,
+        "section": ".text"
+      },
+      {
+        "name": "memchr",
+        "instructions": 48,
+        "section": ".text"
+      },
+      {
+        "name": "strncpy",
+        "instructions": 47,
+        "section": ".text"
+      },
+      {
+        "name": "currentlocale",
+        "instructions": 34,
+        "section": ".text"
+      },
+      {
+        "name": "__loadlocale",
+        "instructions": 524,
+        "section": ".text"
+      },
+      {
+        "name": "__get_locale_env",
+        "instructions": 35,
+        "section": ".text"
+      },
+      {
+        "name": "_setlocale_r",
+        "instructions": 245,
+        "section": ".text"
+      },
+      {
+        "name": "__locale_mb_cur_max",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "setlocale",
+        "instructions": 5,
+        "section": ".text"
+      },
+      {
+        "name": "__localeconv_l",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_localeconv_r",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "localeconv",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_sbrk_r",
+        "instructions": 20,
+        "section": ".text"
+      },
+      {
+        "name": "__libc_fini_array",
+        "instructions": 24,
+        "section": ".text"
+      },
+      {
+        "name": "memmove",
+        "instructions": 74,
+        "section": ".text"
+      },
+      {
+        "name": "memcpy",
+        "instructions": 74,
+        "section": ".text"
+      },
+      {
+        "name": "strlen",
+        "instructions": 53,
+        "section": ".text"
+      },
+      {
+        "name": "strcpy",
+        "instructions": 55,
+        "section": ".text"
+      },
+      {
+        "name": "strcmp",
+        "instructions": 75,
+        "section": ".text"
+      },
+      {
+        "name": "frexp",
+        "instructions": 37,
+        "section": ".text"
+      },
+      {
+        "name": "__register_exitproc",
+        "instructions": 57,
+        "section": ".text"
+      },
+      {
+        "name": "quorem",
+        "instructions": 132,
+        "section": ".text"
+      },
+      {
+        "name": "_dtoa_r",
+        "instructions": 1254,
+        "section": ".text"
+      },
+      {
+        "name": "_findenv_r",
+        "instructions": 80,
+        "section": ".text"
+      },
+      {
+        "name": "_getenv_r",
+        "instructions": 7,
+        "section": ".text"
+      },
+      {
+        "name": "_mbtowc_r",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__ascii_mbtowc",
+        "instructions": 26,
+        "section": ".text"
+      },
+      {
+        "name": "__utf8_mbtowc",
+        "instructions": 197,
+        "section": ".text"
+      },
+      {
+        "name": "__sjis_mbtowc",
+        "instructions": 96,
+        "section": ".text"
+      },
+      {
+        "name": "__eucjp_mbtowc",
+        "instructions": 136,
+        "section": ".text"
+      },
+      {
+        "name": "__jis_mbtowc",
+        "instructions": 120,
+        "section": ".text"
+      },
+      {
+        "name": "_Balloc",
+        "instructions": 43,
+        "section": ".text"
+      },
+      {
+        "name": "_Bfree",
+        "instructions": 9,
+        "section": ".text"
+      },
+      {
+        "name": "__multadd",
+        "instructions": 86,
+        "section": ".text"
+      },
+      {
+        "name": "__s2b",
+        "instructions": 92,
+        "section": ".text"
+      },
+      {
+        "name": "__hi0bits",
+        "instructions": 34,
+        "section": ".text"
+      },
+      {
+        "name": "__lo0bits",
+        "instructions": 71,
+        "section": ".text"
+      },
+      {
+        "name": "__i2b",
+        "instructions": 52,
+        "section": ".text"
+      },
+      {
+        "name": "__multiply",
+        "instructions": 150,
+        "section": ".text"
+      },
+      {
+        "name": "__pow5mult",
+        "instructions": 91,
+        "section": ".text"
+      },
+      {
+        "name": "__lshift",
+        "instructions": 100,
+        "section": ".text"
+      },
+      {
+        "name": "__mcmp",
+        "instructions": 22,
+        "section": ".text"
+      },
+      {
+        "name": "__mdiff",
+        "instructions": 147,
+        "section": ".text"
+      },
+      {
+        "name": "__ulp",
+        "instructions": 40,
+        "section": ".text"
+      },
+      {
+        "name": "__b2d",
+        "instructions": 78,
+        "section": ".text"
+      },
+      {
+        "name": "__d2b",
+        "instructions": 83,
+        "section": ".text"
+      },
+      {
+        "name": "__ratio",
+        "instructions": 51,
+        "section": ".text"
+      },
+      {
+        "name": "_mprec_log10",
+        "instructions": 16,
+        "section": ".text"
+      },
+      {
+        "name": "__copybits",
+        "instructions": 26,
+        "section": ".text"
+      },
+      {
+        "name": "__any_on",
+        "instructions": 25,
+        "section": ".text"
+      },
+      {
+        "name": "_realloc_r",
+        "instructions": 396,
+        "section": ".text"
+      },
+      {
+        "name": "_strtol_l.part.0",
+        "instructions": 192,
+        "section": ".text"
+      },
+      {
+        "name": "_strtol_r",
+        "instructions": 14,
+        "section": ".text"
+      },
+      {
+        "name": "strtol_l",
+        "instructions": 19,
+        "section": ".text"
+      },
+      {
+        "name": "strtol",
+        "instructions": 19,
+        "section": ".text"
+      },
+      {
+        "name": "_wctomb_r",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__ascii_wctomb",
+        "instructions": 12,
+        "section": ".text"
+      },
+      {
+        "name": "__utf8_wctomb",
+        "instructions": 59,
+        "section": ".text"
+      },
+      {
+        "name": "__sjis_wctomb",
+        "instructions": 33,
+        "section": ".text"
+      },
+      {
+        "name": "__eucjp_wctomb",
+        "instructions": 40,
+        "section": ".text"
+      },
+      {
+        "name": "__jis_wctomb",
+        "instructions": 47,
+        "section": ".text"
+      },
+      {
+        "name": "_wcrtomb_r",
+        "instructions": 35,
+        "section": ".text"
+      },
+      {
+        "name": "wcrtomb",
+        "instructions": 36,
+        "section": ".text"
+      },
+      {
+        "name": "_wcsrtombs_r",
+        "instructions": 4,
+        "section": ".text"
+      },
+      {
+        "name": "wcsrtombs",
+        "instructions": 8,
+        "section": ".text"
+      },
+      {
+        "name": "__set_ctype",
+        "instructions": 4,
+        "section": ".text"
+      },
+      {
+        "name": "__smakebuf_r",
+        "instructions": 94,
+        "section": ".text"
+      },
+      {
+        "name": "__swhatbuf_r",
+        "instructions": 61,
+        "section": ".text"
+      },
+      {
+        "name": "strcasecmp",
+        "instructions": 28,
+        "section": ".text"
+      },
+      {
+        "name": "strcat",
+        "instructions": 45,
+        "section": ".text"
+      },
+      {
+        "name": "strchr",
+        "instructions": 91,
+        "section": ".text"
+      },
+      {
+        "name": "strlcpy",
+        "instructions": 17,
+        "section": ".text"
+      },
+      {
+        "name": "strncasecmp",
+        "instructions": 32,
+        "section": ".text"
+      },
+      {
+        "name": "strncmp",
+        "instructions": 46,
+        "section": ".text"
+      },
+      {
+        "name": "_fstat_r",
+        "instructions": 22,
+        "section": ".text"
+      },
+      {
+        "name": "_isatty_r",
+        "instructions": 20,
+        "section": ".text"
+      },
+      {
+        "name": "__errno",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__assert_func",
+        "instructions": 20,
+        "section": ".text"
+      },
+      {
+        "name": "__assert",
+        "instructions": 5,
+        "section": ".text"
+      },
+      {
+        "name": "_calloc_r",
+        "instructions": 56,
+        "section": ".text"
+      },
+      {
+        "name": "__env_lock",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "__env_unlock",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_wcsnrtombs_l",
+        "instructions": 100,
+        "section": ".text"
+      },
+      {
+        "name": "_wcsnrtombs_r",
+        "instructions": 3,
+        "section": ".text"
+      },
+      {
+        "name": "wcsnrtombs",
+        "instructions": 9,
+        "section": ".text"
+      },
+      {
+        "name": "_fiprintf_r",
+        "instructions": 14,
+        "section": ".text"
+      },
+      {
+        "name": "fiprintf",
+        "instructions": 20,
+        "section": ".text"
+      },
+      {
+        "name": "_vfiprintf_r",
+        "instructions": 1513,
+        "section": ".text"
+      },
+      {
+        "name": "vfiprintf",
+        "instructions": 6,
+        "section": ".text"
+      },
+      {
+        "name": "__sbprintf",
+        "instructions": 57,
+        "section": ".text"
+      },
+      {
+        "name": "abort",
+        "instructions": 6,
+        "section": ".text"
+      },
+      {
+        "name": "_init_signal_r",
+        "instructions": 22,
+        "section": ".text"
+      },
+      {
+        "name": "_signal_r",
+        "instructions": 39,
+        "section": ".text"
+      },
+      {
+        "name": "_raise_r",
+        "instructions": 42,
+        "section": ".text"
+      },
+      {
+        "name": "__sigtramp_r",
+        "instructions": 51,
+        "section": ".text"
+      },
+      {
+        "name": "raise",
+        "instructions": 42,
+        "section": ".text"
+      },
+      {
+        "name": "signal",
+        "instructions": 41,
+        "section": ".text"
+      },
+      {
+        "name": "_init_signal",
+        "instructions": 24,
+        "section": ".text"
+      },
+      {
+        "name": "__sigtramp",
+        "instructions": 53,
+        "section": ".text"
+      },
+      {
+        "name": "_kill_r",
+        "instructions": 22,
+        "section": ".text"
+      },
+      {
+        "name": "_getpid_r",
+        "instructions": 1,
+        "section": ".text"
+      },
+      {
+        "name": "_getpid",
+        "instructions": 2,
+        "section": ".text"
+      },
+      {
+        "name": "_kill",
+        "instructions": 9,
+        "section": ".text"
+      },
+      {
+        "name": "_close",
+        "instructions": 46,
+        "section": ".text"
+      },
+      {
+        "name": "_exit",
+        "instructions": 28,
+        "section": ".text"
+      },
+      {
+        "name": "init_semihosting",
+        "instructions": 46,
+        "section": ".text"
+      },
+      {
+        "name": "__add_fdentry",
+        "instructions": 27,
+        "section": ".text"
+      },
+      {
+        "name": "__get_fdentry",
+        "instructions": 19,
+        "section": ".text"
+      },
+      {
+        "name": "__remove_fdentry",
+        "instructions": 7,
+        "section": ".text"
+      },
+      {
+        "name": "_fstat",
+        "instructions": 14,
+        "section": ".text"
+      },
+      {
+        "name": "_isatty",
+        "instructions": 34,
+        "section": ".text"
+      },
+      {
+        "name": "_lseek",
+        "instructions": 84,
+        "section": ".text"
+      },
+      {
+        "name": "_open",
+        "instructions": 70,
+        "section": ".text"
+      },
+      {
+        "name": "_read",
+        "instructions": 44,
+        "section": ".text"
+      },
+      {
+        "name": "_sbrk",
+        "instructions": 12,
+        "section": ".text"
+      },
+      {
+        "name": "__stat_common",
+        "instructions": 47,
+        "section": ".text"
+      },
+      {
+        "name": "_write",
+        "instructions": 38,
+        "section": ".text"
+      },
+      {
+        "name": "__trunctfdf2",
+        "instructions": 391,
+        "section": ".text"
+      }
+    ]
+  },
+  "dynamic": {
+    "total": 28369,
+    "by_class": {
+      "integer": 13695,
+      "memory": 9485,
+      "branch": 1537,
+      "jump": 806,
+      "muldiv": 275,
+      "float": 2560,
+      "system": 11
+    },
+    "calls": 164
+  },
+  "run": {
+    "stdout_sha256": "e0fe1509a061fee3f2322425b9cfb80cc90b9bcc8c6c9011117f16a9a60ae351",
+    "exit_code": 0,
+    "wall_time_median_s": 0.2425574000008055
+  },
+  "energy": {
+    "score": 66852,
+    "weights_used": {
+      "integer": 1.0,
+      "memory": 3.0,
+      "branch": 1.5,
+      "jump": 1.0,
+      "muldiv": 4.0,
+      "float": 8.0,
+      "system": 1.0
+    },
+    "disclaimer": "相对能耗估算，仅用于优化前后趋势对比，不替代真实硬件功耗测试"
+  }
+}

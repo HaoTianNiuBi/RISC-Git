@@ -1,0 +1,48 @@
+{
+  "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00",
+  "sources": [
+    {
+      "source_url": "https://git.spacemit.com/api/v4/projects/33/packages/pypi/simple/spacemit-asr/",
+      "local_relative_path": "official-spacemit-asr-simple-index.html",
+      "sha256": "a3cd1ae072021f8a4f491035e0aaaa737c458fe68e7b4c4960961b3f7f4614ab",
+      "bytes": 2288,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/spacemit-com/model-zoo-asr/main/CMakeLists.txt",
+      "local_relative_path": "official-model-zoo-asr-CMakeLists.txt",
+      "sha256": "f2b396994208acf12bddf0213f225fa0f5784aafd048e2567ba5464c4e535223",
+      "bytes": 16557,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/spacemit-com/model-zoo-asr/main/README.md",
+      "local_relative_path": "official-model-zoo-asr-README.md",
+      "sha256": "ac84f48a7ff1fab8a5af64bee6d62e87d9f9182e6e8546b2199b10b446a17d3c",
+      "bytes": 25131,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/spacemit-com/model-zoo-asr/main/python/setup.py",
+      "local_relative_path": "official-model-zoo-asr-python-setup.py.txt",
+      "sha256": "c3b59911d2f5acd30f85cccbc602b030b807a49f03778e109bf623a640616be0",
+      "bytes": 4226,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/spacemit-com/ai-sdk/main/README.md",
+      "local_relative_path": "official-ai-sdk-README.md",
+      "sha256": "41cafa6a6588e2289c94e77a8fe1d6ebfa538c453f5abb110b634cd0faa2882b",
+      "bytes": 10754,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/spacemit-com/docs-ai/main/zh/application_tools/ai-sdk.md",
+      "local_relative_path": "official-docs-ai-sdk-zh.md",
+      "sha256": "8dc90cdac6027f7531e3d4f79d15d8bd96e876c5682798c2b6f2641592d2057a",
+      "bytes": 23705,
+      "retrieved_at_utc": "2026-11-06T12:57:19.132242+00:00"
+    }
+  ],
+  "derived_metadata_source_url": "https://git.spacemit.com/api/v4/projects/33/packages/pypi/files/c4900d66fb5cf30cc7e910a669f929fb59aa40ad0e70be7b3cafa012ac0a41f9/spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl"
+}

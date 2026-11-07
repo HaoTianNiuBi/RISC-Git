@@ -1,0 +1,58 @@
+{
+  "items": {
+    "rv64gc": {
+      "dynamic_total": 28369,
+      "by_class": {
+        "integer": 13695,
+        "memory": 9485,
+        "branch": 1537,
+        "jump": 806,
+        "muldiv": 275,
+        "float": 2560,
+        "system": 11
+      },
+      "calls": 164,
+      "float_insns": 2560,
+      "energy": 66852,
+      "static_total": 14973,
+      "toolchain": "riscv-none-elf-gcc.exe (xPack GNU RISC-V Embedded GCC x86_64) 15.2.0",
+      "qemu": "QEMU emulator version 11.1.0 (v11.1.0-12130-ge470268ff4)"
+    },
+    "rv64i": {
+      "dynamic_total": 352363,
+      "by_class": {
+        "integer": 231106,
+        "memory": 21005,
+        "branch": 88196,
+        "jump": 12046,
+        "muldiv": 0,
+        "float": 0,
+        "system": 10
+      },
+      "calls": 4537,
+      "float_insns": 0,
+      "energy": 438471,
+      "static_total": 17842,
+      "toolchain": "riscv-none-elf-gcc.exe (xPack GNU RISC-V Embedded GCC x86_64) 15.2.0",
+      "qemu": "QEMU emulator version 11.1.0 (v11.1.0-12130-ge470268ff4)"
+    },
+    "rv32i": {
+      "dynamic_total": 465454,
+      "by_class": {
+        "integer": 313100,
+        "memory": 15943,
+        "branch": 117633,
+        "jump": 18768,
+        "muldiv": 0,
+        "float": 0,
+        "system": 10
+      },
+      "calls": 7735,
+      "float_insns": 0,
+      "energy": 556156,
+      "static_total": 20215,
+      "toolchain": "riscv-none-elf-gcc.exe (xPack GNU RISC-V Embedded GCC x86_64) 15.2.0",
+      "qemu": "QEMU emulator version 11.1.0 (v11.1.0-12130-ge470268ff4)"
+    }
+  }
+}

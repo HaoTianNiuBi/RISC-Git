@@ -1,0 +1,20 @@
+[
+  {
+    "name": "spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl",
+    "source_url": "https://git.spacemit.com/api/v4/projects/33/packages/pypi/files/c4900d66fb5cf30cc7e910a669f929fb59aa40ad0e70be7b3cafa012ac0a41f9/spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl",
+    "local_path": "D:\\1比赛集合\\RISC\\板端验证\\asr\\downloads\\spacemit_asr-1.0.2-cp312-cp312-linux_riscv64.whl",
+    "bytes": 405617,
+    "sha256": "c4900d66fb5cf30cc7e910a669f929fb59aa40ad0e70be7b3cafa012ac0a41f9",
+    "publisher_sha256_verified": true,
+    "downloaded_at_utc": "2026-11-06T13:00:48.354327+00:00"
+  },
+  {
+    "name": "sensevoice.tar.gz",
+    "source_url": "https://archive.spacemit.com/spacemit-ai/model_zoo/asr/sensevoice.tar.gz",
+    "local_path": "D:\\1比赛集合\\RISC\\板端验证\\asr\\downloads\\sensevoice.tar.gz",
+    "bytes": 435638831,
+    "sha256": "48b52422b452c4dc3853917980aab992dfd5c38c30914936bb7411746b41b191",
+    "publisher_sha256_verified": false,
+    "downloaded_at_utc": "2026-11-06T13:01:58.455620+00:00"
+  }
+]
