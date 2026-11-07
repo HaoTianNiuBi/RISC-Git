@@ -28,8 +28,8 @@
 ```bash
 cd /home/haotian/rv-doctor-edge-validation/terminal
 umask 077
-python3 tasks.py --seed
-../asr/venv/bin/python terminal.py --model-dir ../asr/models/sensevoice --port 18793
+python3 tasks.py --base . --seed          # --base 必须给，否则报告与对照数据落错目录
+../asr/venv/bin/python terminal.py --model-dir ../asr/models/sensevoice --port 18793   # --model-dir 必填
 ```
 
 Windows 端使用 ADB 转发后，在浏览器打开 [K1 语音终端](http://127.0.0.1:18793/)。板端浏览器也可直接打开相同的地址。当前临时服务名为 `rv-doctor-edge-llm.service` 和 `rv-doctor-edge-terminal.service`。
